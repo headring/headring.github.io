@@ -1,0 +1,42 @@
+{
+  "name": "oreum-blog-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "oreum-blog-gatsby",
+  "author": "headring",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^2.1.3",
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^4.22.1",
+    "gatsby-plugin-google-analytics": "^4.22.0",
+    "gatsby-plugin-image": "^2.22.0",
+    "gatsby-plugin-manifest": "^4.22.0",
+    "gatsby-plugin-mdx": "^4.1.1",
+    "gatsby-plugin-sharp": "^4.22.0",
+    "gatsby-plugin-sitemap": "^5.22.0",
+    "gatsby-plugin-styled-components": "^5.22.0",
+    "gatsby-source-filesystem": "^4.22.0",
+    "gatsby-source-wordpress": "^6.22.1",
+    "gatsby-transformer-sharp": "^4.22.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^18.0.19",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "^4.8.3"
+  }
+}
