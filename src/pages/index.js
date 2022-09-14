@@ -1,17 +1,20 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { getUser, isLoggedIn } from '../services/auth'
+import React from "react";
+import { Link } from "gatsby";
+import { getUser, isLoggedIn } from "../services/auth";
 
-import Layout from '../components/layout'
+import MainPage from "./MainPage.tsx";
+import Layout from "../components/Layout/layout";
+import GlobalStyle from "../styles/GlobalStyle";
 
 const IndexPage = () => {
   return (
     <Layout>
-      <h1>Hi {isLoggedIn() ? getUser().name : 'people'}</h1>
+      <GlobalStyle />
+      <MainPage />
       <p>
         {isLoggedIn() ? (
           <>
-            You are logged in, so check your{' '}
+            You are logged in, so check your{" "}
             <Link to="/app/profile">profile</Link>
           </>
         ) : (
@@ -22,7 +25,7 @@ const IndexPage = () => {
         )}
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
