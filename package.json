@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.3",
+    "@uiw/react-md-editor": "^3.18.1",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.22.1",
     "gatsby-plugin-create-client-paths": "^4.9.0",
