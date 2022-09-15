@@ -3,6 +3,7 @@ import { Link, navigate } from 'gatsby'
 import { getUser, isLoggedIn, logout } from '../services/auth'
 
 export default () => {
+  
   const content = { message: '', login: true }
   if (isLoggedIn()) {
     content.message = `Hello, ${getUser().name}`

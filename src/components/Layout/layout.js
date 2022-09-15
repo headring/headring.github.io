@@ -2,11 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-
 import Header from "../header";
 import NavBar from "../navBar";
 
+const downloadTxtFile = () => {
+  const element = document.createElement("a");
+  const file = new Blob(["hello"], {
+    type: "text/plain"
+  });
+  element.href = URL.createObjectURL(file);
+  element.download = "myFile.md";
+  document.body.appendChild(element);
+  element.click();
+};
+
 const Layout = ({ children }) => (
+  
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -39,6 +50,7 @@ const Layout = ({ children }) => (
         >
           <NavBar />
           {children}
+          <button onClick={downloadTxtFile}>click</button>
         </div>
       </>
     )}

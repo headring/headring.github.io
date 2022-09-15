@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
   //     "url": ""
   //   }
   // },
-   "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", 'gatsby-plugin-react-helmet', 
+  `gatsby-transformer-remark`, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", 'gatsby-plugin-react-helmet', 
   //  {
   //   resolve: 'gatsby-plugin-google-analytics',
   //   options: {
@@ -38,9 +38,16 @@ const config: GatsbyConfig = {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": "./public/images/"
     },
     __key: "images"
+  }, {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      "name": "article",
+      "path": "./src/article/"
+    },
+    __key: "article"
   }, {
     resolve: 'gatsby-source-filesystem',
     options: {
