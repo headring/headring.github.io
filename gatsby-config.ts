@@ -9,20 +9,30 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [{
-    resolve: 'gatsby-source-wordpress',
-    options: {
-      "url": ""
-    }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", {
-    resolve: 'gatsby-plugin-google-analytics',
-    options: {
-      "trackingId": ""
-    }
-  }, "gatsby-plugin-sitemap", {
+  plugins: [
+  //   {
+  //   resolve: 'gatsby-source-wordpress',
+  //   options: {
+  //     "url": ""
+  //   }
+  // },
+   "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", 'gatsby-plugin-react-helmet', 
+  //  {
+  //   resolve: 'gatsby-plugin-google-analytics',
+  //   options: {
+  //     "trackingId": ""
+  //   }
+  // }, 
+  "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      name: 'gatsby-auth-tutorial',
+      short_name: 'auth',
+      start_url: '/',
+      background_color: '#663399',
+      theme_color: '#663399',
+      display: 'minimal-ui',
+      icon: 'src/images/gatsby-icon.png', // This pat
     }
   }, "gatsby-plugin-mdx", {
     resolve: 'gatsby-source-filesystem',
@@ -38,7 +48,13 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  },
+  'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/app/*`] },
+    },  
+  ]
 };
 
 export default config;
