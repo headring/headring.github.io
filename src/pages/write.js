@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import MDEditor from '@uiw/react-md-editor';
 import styled from "styled-components"
+// import GlobalStyle from "../styles/GlobalStyle";
 
 // styled
 const PageWrapper = styled.div`
@@ -12,7 +13,7 @@ const PageWrapper = styled.div`
     min-width: 90vw;
     max-width: 90vw;
   }
-  p {
+  /* p {
     margin-top: 0;
     margin-bottom: 2em;
     color: blue;
@@ -21,7 +22,7 @@ const PageWrapper = styled.div`
       font-size: 20px;
       opacity: 1;
     }
-  }
+  } */
 `
 const HiddenForm = styled.form`
   visibility: hidden;
@@ -58,7 +59,7 @@ const DIV_Hover = styled.div`
 const downloadTxtFile = (value) => {
   console.log(value);
   const element = document.createElement("a");
-  const file = new Blob([value], {
+  const file = new Blob([document.querySelector('.w-md-editor-text-input').value], {
     type: "text/plain"
   });
   element.href = URL.createObjectURL(file);
@@ -73,7 +74,7 @@ const downloadTxtFile2 = () => {
   const file = new Blob([document.getElementById('input').value],    
               {type: 'text/plain;charset=utf-8'});
   element.href = URL.createObjectURL(file);
-  element.download = "myFile.txt";
+  element.download = "myFile.md";
   document.body.appendChild(element);
   element.click();
 }
@@ -102,22 +103,25 @@ export default function Write() {
   // const [hover, setHover] = useState<string>('');
 
   return (
-    <PageWrapper>
-      <HiddenForm>
-        <input id="input" value={value} onChange={(e) => setValue(e.target.value)} />
-      </HiddenForm>
-      <div data-color-mode="light">
-        <p>help?
-          <h3>Design</h3>
-          <p>일러스트를 이용한 디자인입니다.</p>
-        </p>
-        <MDEditor height={972} value={value} onChange={setValue} />
-        <div className="button__rows">
-          <Button>⬅️ 나가기</Button>
-          <Button float="right" color="#6300eb"  onClick={downloadTxtFile2}>출간하기</Button>
-          <Button float="right">임시저장</Button>
-        </div>
+    <>
+      {/* <GlobalStyle /> */}
+      <div>
+        <p>working</p>
       </div>
-    </PageWrapper>
+      <PageWrapper>
+        <div data-color-mode="light">
+          <p>help?
+            <h3>Design</h3>
+            <p>일러스트를 이용한 디자인입니다.</p>
+          </p>
+          <MDEditor preview="preview" height={972} value={value} onChange={setValue} />
+          <div className="button__rows">
+            <Button>⬅️ 나가기</Button>
+            <Button float="right" color="#6300eb"  onClick={downloadTxtFile}>출간하기</Button>
+            <Button float="right">임시저장</Button>
+          </div>
+        </div>
+      </PageWrapper>
+    </>
   );
 };
