@@ -38,6 +38,7 @@ export default () => {
             Logout
           </a>
         ) : null}
+        <Link to='/write'>Write</Link>
       </nav>
     </div>
   )
