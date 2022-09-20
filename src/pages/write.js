@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import MDEditor from '@uiw/react-md-editor';
 import styled from "styled-components"
-// import GlobalStyle from "../styles/GlobalStyle";
+import GlobalStyle from "../styles/GlobalStyle";
 
 // styled
 const PageWrapper = styled.div`
@@ -104,12 +104,12 @@ export default function Write() {
 
   return (
     <>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       <div>
         <p>working</p>
       </div>
       <PageWrapper>
-        <div data-color-mode="light">
+        <div data-color-mode="dark">
           <p>help?
             <h3>Design</h3>
             <p>일러스트를 이용한 디자인입니다.</p>
