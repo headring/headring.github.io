@@ -66,7 +66,7 @@ const Header = ({ siteTitle }) => {
         {/* <nav> */}
         {/* <Link to="/">Home</Link> */}
         <Link to="/">모든 글 보기</Link>
-        <Link to="/app/post">글 작성</Link>
+        <Link to="/app/write">글 작성</Link>
         <Link to="/app/contents">글 상세페이지(임시)</Link>
         <Link to="/">검색</Link>
         <Link to="/app/profile">Profile</Link>
