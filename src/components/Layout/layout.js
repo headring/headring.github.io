@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import Header from "../header";
 import NavBar from "../navBar";
+import GlobalStyle from "../../styles/GlobalStyle";
 
 const downloadTxtFile = () => {
   const element = document.createElement("a");
@@ -30,6 +31,7 @@ const Layout = ({ children }) => (
     `}
     render={(data) => (
       <>
+        <GlobalStyle />
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
