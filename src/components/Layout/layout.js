@@ -3,20 +3,9 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Header from "../header";
-import NavBar from "../navBar";
+import GlobalStyle from "../../styles/GlobalStyle";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata.js";
-
-const downloadTxtFile = () => {
-  const element = document.createElement("a");
-  const file = new Blob(["hello"], {
-    type: "text/plain",
-  });
-  element.href = URL.createObjectURL(file);
-  element.download = "myFile.md";
-  document.body.appendChild(element);
-  element.click();
-};
 
 const Layout = ({ children }) => {
   const result = useSiteMetadata();
@@ -42,9 +31,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <NavBar />
         {children}
-        <button onClick={downloadTxtFile}>click</button>
       </div>
     </>
   );
