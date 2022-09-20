@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       >
         <html lang="en" />
       </Helmet>
-      <Header />
+      <Header siteTitle={"oreum"} />
       {/* siteTitle={data.site.siteMetadata.title}  */}
       <div
         style={{
