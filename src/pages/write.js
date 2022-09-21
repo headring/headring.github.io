@@ -114,7 +114,7 @@ export default function Write() {
             <h3>Design</h3>
             <p>일러스트를 이용한 디자인입니다.</p>
           </p>
-          <MDEditor preview="preview" height={972} value={value} onChange={setValue} />
+          <MDEditor height={972} value={value} onChange={setValue} />
           <div className="button__rows">
             <Button>⬅️ 나가기</Button>
             <Button float="right" color="#6300eb"  onClick={downloadTxtFile}>출간하기</Button>
