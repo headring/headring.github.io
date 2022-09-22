@@ -12,7 +12,6 @@ export interface Post {
 }
 
 const Item = ({data}:{data:Post} ) => {
-  console.log(data)
   return (
     <Wapper>
       <Header>

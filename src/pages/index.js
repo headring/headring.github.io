@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { getUser, isLoggedIn } from "../services/auth";
 
 import MainPage from "./MainPage.tsx";
-import Layout from "../components/Layout/layout";
+import Layout from "../components/Layout";
 import GlobalStyle from "../styles/GlobalStyle";
 
 const IndexPage = () => {
