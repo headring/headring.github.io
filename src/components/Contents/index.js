@@ -1,7 +1,8 @@
-import React from "react";
-import { Article, Title, StyledContent } from "./style";
+import React, { useEffect, useState } from "react";
+import { Article, Title, StyledContent, Box } from "./style";
 import ReactMarkdown from "react-markdown";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import MDEditor from "@uiw/react-md-editor"; //
 // import fs from "fs";
 // const fs = require("fs");
 
@@ -43,17 +44,26 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 // fs.writeFileSync("test.md", "\ufeff" + markdown, { encoding: "utf8" });
 
 const Contents = () => {
+  const [theme, setTheme] = useState(window.localStorage.getItem("theme"));
+  // useEffect(() => {
+  //   setTheme(window.localStorage.getItem("theme"));
+  // }, []);
   return (
     <Article>
       <Title>{"S3.[자료구조/알고리즘] 재귀"}</Title>
-      <div className="text-2xl">TEST</div>
-      <div className="text-xl">TEST2</div>
-
       <span>{"Bootcamp "}</span>
       <span>{"2022. 8. 23. 14:45"}</span>
-      <StyledContent id="Markdown">
+      {/* <StyledContent id="Markdown">
         <ReactMarkdown>{markdown}</ReactMarkdown>
-      </StyledContent>
+      </StyledContent> */}
+      <Box data-color-mode={theme}>
+        <MDEditor
+          preview="preview"
+          height={972}
+          value={markdown}
+          hideToolbar={true}
+        />
+      </Box>
     </Article>
   );
 };

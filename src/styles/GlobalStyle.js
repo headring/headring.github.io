@@ -73,9 +73,31 @@ const GlobalStyle = createGlobalStyle`
     --hr: hsla(0, 0%, 0%, 0.2);
 
     background-color: var(--bg);
+    a.logo {
+      color: black;
+    }
   }
 
-  /* body.dark {
+  body.dark {
+    -webkit-font-smoothing: antialiased;
+
+    --bg: rgba(14, 17, 22);
+    --textNormal: rgba(255, 255, 255, 0.88);
+    --textTitle: white;
+    --textLink: yellow;
+    --hr: hsla(0, 0%, 100%, 0.2);
+
+    background-color: var(--bg);
+    color: var(--textTitle);
+    a.logo {
+      color: white;
+    }
+    li {
+      border-color: gray;
+    }
+  }
+
+  /* *.dark {
     -webkit-font-smoothing: antialiased;
 
     --bg: darkslategray;
@@ -87,19 +109,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--bg);
     color: var(--textTitle);
   } */
-
-  *.dark {
-    -webkit-font-smoothing: antialiased;
-
-    --bg: darkslategray;
-    --textNormal: rgba(255, 255, 255, 0.88);
-    --textTitle: white;
-    --textLink: yellow;
-    --hr: hsla(0, 0%, 100%, 0.2);
-
-    background-color: var(--bg);
-    color: var(--textTitle);
-  }
 
   a {
     text-decoration: none;
