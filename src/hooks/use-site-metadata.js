@@ -4,14 +4,10 @@ export const useSiteMetadata = () => {
   const data = useStaticQuery(
     graphql`
       query SiteTitleQuery {
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                date
-                title
-              }
-            }
+        site {
+          siteMetadata {
+            title
+            description
           }
         }
       }
@@ -19,16 +15,3 @@ export const useSiteMetadata = () => {
   );
   return data;
 };
-
-// graphql`
-// query allMarkdownRemark {
-//   nodes {
-//     excerpt
-//     frontmatter {
-//       title
-//       date
-//     }
-//     html
-//   }
-// }
-// `

@@ -1,17 +1,17 @@
 import React from 'react'
 
-import Item from '../Item';
-import { Blog } from '../../pages/MainPage';
+import Item, { Post } from '../Item';
+
 import { Wapper } from './styles';
 
 interface ItemListProps {
-    datas: Blog[];
+    datas: Post[];
 }
 
 const ItemList = ( { datas }: ItemListProps ) => {
   return (
     <Wapper>
-      {datas.map((data:Blog)=> (
+      {datas.map((data:Post)=> (
         <Item key={data.id} data={data} />
        ))}
     </Wapper>
