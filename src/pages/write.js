@@ -119,7 +119,7 @@ export default function Write() {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <div>
         <p>working</p>
       </div>

@@ -10,6 +10,10 @@ export const Article = styled.article`
   margin: 0;
 `;
 
+export const Box = styled.div`
+  border: 0px;
+`;
+
 export const StyledContent = styled.div`
   line-height: 1.4;
   blockquote {

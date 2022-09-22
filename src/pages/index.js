@@ -8,13 +8,14 @@ import theme from "../styles/theme";
 import MainPage from "./MainPage.tsx";
 import Layout from "../components/Layout";
 import GlobalStyle from "../styles/GlobalStyle";
+import App from "./app";
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MainPage />
+        <App />
         <p>
           {isLoggedIn() ? (
             <>
@@ -29,7 +30,7 @@ const IndexPage = () => {
           )}
         </p>
       </ThemeProvider>
-    </Layout>
+    </>
   );
 };
 

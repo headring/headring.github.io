@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   /* font-size: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   right: 36px;
   bottom: 36px;
@@ -12,4 +15,13 @@ export const Button = styled.button`
   border-radius: 70%;
   font-size: 60px;
   color: white;
+  cursor: pointer;
+`;
+
+export const Message = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
 `;
