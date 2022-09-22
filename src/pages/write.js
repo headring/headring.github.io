@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import MDEditor from '@uiw/react-md-editor';
-import styled from "styled-components"
+import React, { useState } from "react";
+import MDEditor from "@uiw/react-md-editor";
+import styled from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
 
 // styled
@@ -23,29 +23,40 @@ const PageWrapper = styled.div`
       opacity: 1;
     }
   } */
-`
+  @media ${(props) => props.theme.mobile} {
+    .md-editor.w-md-editor-show-live {
+      .w-md-editor-input {
+        width: 100%;
+      }
+      .w-md-editor-preview {
+        display: none;
+      }
+    }
+  }
+`;
 const HiddenForm = styled.form`
   visibility: hidden;
-`
+`;
 const Button = styled.button`
   font-size: 32px;
-  background: ${(props) => props.color || '#fff'};
+  background: ${(props) => props.color || "#fff"};
   float: ${(props) => props.float || null};
-
-`
+`;
 const DIV_Hover = styled.div`
   transition: top 1s ease-in; // trasition 으로 top 이동시 자연스럽게 만들어 주자
-  top: 20px; 		       // 호버메시지의 원래 위치 
+  top: 20px; // 호버메시지의 원래 위치
 
-  &.hover { 			// 호버시 추가되는 클래스
-    top: 0px; 			// 호버시 top 위치를 조금 위로 움직여준다.
-    animation-duration: 3s;  	// 애니메이션 3초동안 실행 
-    animation-name: fadeout; 	// 애니메이션 효과는 fade-out
+  &.hover {
+    // 호버시 추가되는 클래스
+    top: 0px; // 호버시 top 위치를 조금 위로 움직여준다.
+    animation-duration: 3s; // 애니메이션 3초동안 실행
+    animation-name: fadeout; // 애니메이션 효과는 fade-out
   }
-  
-  @keyframes fadeout { 		// fade-out시 opacity를 흐릿하다가 선명하기 만들자
+
+  @keyframes fadeout {
+    // fade-out시 opacity를 흐릿하다가 선명하기 만들자
     0% {
-      opacity: 0; 
+      opacity: 0;
     }
 
     100% {
@@ -59,9 +70,12 @@ const DIV_Hover = styled.div`
 const downloadTxtFile = (value) => {
   console.log(value);
   const element = document.createElement("a");
-  const file = new Blob([document.querySelector('.w-md-editor-text-input').value], {
-    type: "text/plain"
-  });
+  const file = new Blob(
+    [document.querySelector(".w-md-editor-text-input").value],
+    {
+      type: "text/plain",
+    }
+  );
   element.href = URL.createObjectURL(file);
   element.download = "myFile.md";
   document.body.appendChild(element);
@@ -71,13 +85,14 @@ const downloadTxtFile = (value) => {
 // 다운로드 버튼 ver2
 const downloadTxtFile2 = () => {
   const element = document.createElement("a");
-  const file = new Blob([document.getElementById('input').value],    
-              {type: 'text/plain;charset=utf-8'});
+  const file = new Blob([document.getElementById("input").value], {
+    type: "text/plain;charset=utf-8",
+  });
   element.href = URL.createObjectURL(file);
   element.download = "myFile.md";
   document.body.appendChild(element);
   element.click();
-}
+};
 
 const mkdStr = `
 # Markdown Editor
@@ -104,24 +119,33 @@ export default function Write() {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <div>
         <p>working</p>
       </div>
       <PageWrapper>
         <div data-color-mode="dark">
-          <p>help?
+          <p>
+            help?
             <h3>Design</h3>
             <p>일러스트를 이용한 디자인입니다.</p>
           </p>
-          <MDEditor height={972} value={value} onChange={setValue} />
+          <MDEditor
+            className="md-editor"
+            preview="preview"
+            height={972}
+            value={value}
+            onChange={setValue}
+          />
           <div className="button__rows">
             <Button>⬅️ 나가기</Button>
-            <Button float="right" color="#6300eb"  onClick={downloadTxtFile}>출간하기</Button>
+            <Button float="right" color="#6300eb" onClick={downloadTxtFile}>
+              출간하기
+            </Button>
             <Button float="right">임시저장</Button>
           </div>
         </div>
       </PageWrapper>
     </>
   );
-};
+}

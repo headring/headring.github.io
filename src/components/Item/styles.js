@@ -13,6 +13,13 @@ export const Header = styled.div`
 
 export const Main = styled.div`
   margin: 16px;
+  @media ${(props) => props.theme.desktop} {
+    background-color: red;
+  }
+  @media ${(props) => props.theme.mobile} {
+    background-color: yellow;
+  }
+
   h3 {
     margin-bottom: 16px;
     font-size: 1.2rem;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./style";
+import { Button, Message } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import * from '@fortawesome/fontawesome-free-solid';
 import { faComment } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,9 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 function QuickCommentButton() {
   return (
     <Button>
-      <FontAwesomeIcon icon={faComment} />
+      <Message>
+        <FontAwesomeIcon icon={faComment} fontSize={"36px"} />
+      </Message>
     </Button>
   );
 }
