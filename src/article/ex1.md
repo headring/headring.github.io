@@ -1,7 +1,7 @@
 ---
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
-category: "Learning TIL/Bootcamp"
+category: "Learning TIL&Bootcamp"
 imgPath: "../images/gatsby-icon.png"
 ---
 
