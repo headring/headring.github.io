@@ -4,6 +4,7 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { getUser, isLoggedIn, logout } from "../services/auth";
 import { createGlobalStyle } from "styled-components";
 import { useState } from "react";
+import { Modal } from "./Modal";
 
 // const GlobalStyle = createGlobalStyle`
 //   body.dark {
@@ -70,7 +71,8 @@ const Header = ({ siteTitle }) => {
         <Link to="/">모든 글 보기</Link>
         <Link to="/app/write">글 작성</Link>
         <Link to="/app/contents">글 상세페이지(임시)</Link>
-        <Link to="/">검색</Link>
+        {/* <Link to="/">검색</Link> */}
+        <Modal inActive={'검색'} active={'입력 중'} type={'form'}></Modal>
         <Link to="/app/profile">Profile</Link>
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
