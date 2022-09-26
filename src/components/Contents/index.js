@@ -3,8 +3,6 @@ import { Article, Title, StyledContent, Box } from "./style";
 import ReactMarkdown from "react-markdown";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import MDEditor from "@uiw/react-md-editor"; //
-// import fs from "fs";
-// const fs = require("fs");
 
 const markdown = `# Getting Started with Create React App
 
@@ -40,8 +38,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### \`npm run eject\`
 
 **Note: this is a one-way operation. Once you \`eject\`, you can't go back!**`;
-
-// fs.writeFileSync("test.md", "\ufeff" + markdown, { encoding: "utf8" });
 
 const Contents = () => {
   const [theme, setTheme] = useState(window.localStorage.getItem("theme"));

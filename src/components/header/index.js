@@ -1,24 +1,9 @@
 import React from "react";
 import { Link, navigate } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
-import { getUser, isLoggedIn, logout } from "../services/auth";
-import { createGlobalStyle } from "styled-components";
+import { getUser, isLoggedIn, logout } from "../../services/auth";
 import { useState } from "react";
-
-// const GlobalStyle = createGlobalStyle`
-//   body.dark {
-//     -webkit-font-smoothing: antialiased;
-
-//     --bg: darkslategray;
-//     --textNormal: rgba(255, 255, 255, 0.88);
-//     --textTitle: white;
-//     --textLink: yellow;
-//     --hr: hsla(0, 0%, 100%, 0.2);
-
-//     background-color: var(--bg);
-//     color: var(--textTitle);
-//   }
-// `;
+import { Container } from "./styles";
 
 const Header = ({ siteTitle }) => {
   const content = { message: "", login: true };
@@ -30,45 +15,22 @@ const Header = ({ siteTitle }) => {
   }
 
   return (
-    <div
-      style={
-        {
-          // background: "white",
-          // marginBottom: "1.45rem",
-        }
-      }
-    >
-      {/* <GlobalStyle /> */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          margin: "0 auto",
-          maxWidth: 960,
-          padding: "1.45rem 1.0875rem",
-          height: "72px",
-        }}
-      >
-        {/* <h1 style={{ margin: 0 }}> */}
+    <div>
+      <Container>
         <Link
           className="logo"
           to="/"
           style={{
-            // color: "black",
             textDecoration: "none",
             fontSize: "28px",
           }}
         >
           {siteTitle}
         </Link>
-        {/* </h1> */}
 
         <span>{content.message}</span>
-        {/* <nav> */}
-        {/* <Link to="/">Home</Link> */}
         <Link to="/">모든 글 보기</Link>
-        <Link to="/app/write">글 작성</Link>
+        {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
         <Link to="/app/contents">글 상세페이지(임시)</Link>
         <Link to="/">검색</Link>
         <Link to="/app/profile">Profile</Link>
@@ -97,8 +59,7 @@ const Header = ({ siteTitle }) => {
             Logout
           </a>
         ) : null}
-        {/* </nav> */}
-      </div>
+      </Container>
     </div>
   );
 };
