@@ -101,20 +101,6 @@ series: "title for your post serires such as 'React BreakDown'"
 **FROM HERE, WRITE CONTENTS USING MARKDOWN SYNTAX
 `;
 
-const _textInput = `
----
-title: "🤔 3. Writing Guide"
-description: "How to write and add a post?"
-date: 2021-05-03
-update: 2021-05-03
-tags:
-  - react
-  - custom component
-series: "Getting started your blog with gatsby-starter-hoodie"
----
-**WRITE CONTES USING MARKDOWN SYNTAX
-`
-
 export default function Write() {
   const [value, setValue] = useState(mkdStr);
   // const [hover, setHover] = useState<string>('');
