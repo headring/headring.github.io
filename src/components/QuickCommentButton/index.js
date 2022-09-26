@@ -1,13 +1,15 @@
 import React from "react";
 import { Button, Message } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import * from '@fortawesome/fontawesome-free-solid';
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-// import * as Icons from "@fortawesome/free-solid-svg-icons";
 
-function QuickCommentButton() {
+function QuickCommentButton({ modalOpen, setModalOpen }) {
   return (
-    <Button>
+    <Button
+      onClick={() => {
+        setModalOpen(!modalOpen);
+      }}
+    >
       <Message>
         <FontAwesomeIcon icon={faComment} fontSize={"36px"} />
       </Message>
