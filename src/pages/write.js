@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import styled from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
+import { Modal } from "../components/Modal";
+import Post from "../components/Post";
 
 // styled
 const PageWrapper = styled.div`
@@ -82,57 +84,36 @@ const downloadTxtFile = (value) => {
   element.click();
 };
 
-// 다운로드 버튼 ver2
-const downloadTxtFile2 = () => {
-  const element = document.createElement("a");
-  const file = new Blob([document.getElementById("input").value], {
-    type: "text/plain;charset=utf-8",
-  });
-  element.href = URL.createObjectURL(file);
-  element.download = "myFile.md";
-  document.body.appendChild(element);
-  element.click();
-};
-
 const mkdStr = `
-# Markdown Editor
-
-[Source](https://www.npmjs.com/package/@uiw/react-md-editor)
-hi
+/* REQUIRED AREA for GraphQl */
 ---
+title: "title for your post"
+description: "description for your post"
+date: date in YYYY-MM-DD
+update: date in YYYY-MM-DD
+tags: (multiple tags can be written as below.)
+  - react
+  - custom component
+series: "title for your post serires such as 'React BreakDown'"
+---
+/* REQUIRED AREA for GraphQl */
 
-**Hello world!!!**
-
-[![](https://avatars.githubusercontent.com/u/1680273?s=80&v=4)](https://avatars.githubusercontent.com/u/1680273?v=4)
-
-\`\`\`javascript
-import React from "react";
-import ReactDOM from "react-dom";
-import MEDitor from '@uiw/react-md-editor';
-
-\`\`\`
+**FROM HERE, WRITE CONTENTS USING MARKDOWN SYNTAX
 `;
 
 export default function Write() {
   const [value, setValue] = useState(mkdStr);
   // const [hover, setHover] = useState<string>('');
 
+
   return (
     <>
       {/* <GlobalStyle /> */}
-      <div>
-        <p>working</p>
-      </div>
       <PageWrapper>
+        <Post></Post>
         <div data-color-mode="dark">
-          <p>
-            help?
-            <h3>Design</h3>
-            <p>일러스트를 이용한 디자인입니다.</p>
-          </p>
           <MDEditor
             className="md-editor"
-            preview="preview"
             height={972}
             value={value}
             onChange={setValue}
