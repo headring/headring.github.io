@@ -1,7 +1,7 @@
 import * as React from "react";
 import MDEditor from "@uiw/react-md-editor";
 
-const post = () => {
+const Post = () => {
   return (
     <>
       <div className="container">
@@ -13,4 +13,4 @@ const post = () => {
   );
 };
 
-export default post;
+export default Post;
