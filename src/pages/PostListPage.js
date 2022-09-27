@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "../components/categories";
+import Categories from "../components/Categories";
 import Layout from "../components/Layout";
 
 import { useCategory } from "../hooks/use-site-category";

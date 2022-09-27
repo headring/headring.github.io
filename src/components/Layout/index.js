@@ -1,8 +1,11 @@
 import React from "react";
-import Helmet from "react-helmet";
-import Header from "../header";
 
+import Helmet from "react-helmet";
 import { useSiteMetadata } from "../../hooks/use-site-metadata.js";
+
+import Header from "../Header";
+import Footer from "../Footer";
+
 import { Wapper } from "./styles";
 
 const Layout = ({ children }) => {
@@ -21,6 +24,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Wapper>{children}</Wapper>
+      <Footer />
     </>
   );
 };
