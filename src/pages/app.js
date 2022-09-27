@@ -9,7 +9,7 @@ import Login from "../components/login";
 import Write from "./write";
 import ContentsPage from "./ContentsPage";
 import MainPage from "./MainPage";
-import PostListPage from "./PostListPage";
+import PostListPage from "./post-list";
 
 const App = () => (
   <Layout>

@@ -1,8 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
+import { Container } from "./styles";
+import { useCategory } from "../../hooks/use-site-category";
+import Categories from "../../components/Categories";
 
-const BoardPage = ({ data, location, pageContext, allData, children }) => {
+const BoardPage = ({ data, location, pageContext, allData }) => {
+  let categories = useCategory();
   let edges = data?.allMarkdownRemark ? data?.allMarkdownRemark.edges : allData;
 
   if (data?.allMarkdownRemark) {
@@ -21,14 +25,17 @@ const BoardPage = ({ data, location, pageContext, allData, children }) => {
 
   return (
     <Layout>
-      {children}
-      <ul>
-        {edges.map((edge) => {
-          const { id, title, category } = edge;
-          return <li key={id}>{category}</li>;
-        })}
-      </ul>
-      <Link to="/">Go back to the homepage</Link>
+      <Container>
+        <Categories data={categories} />
+        <div>
+          <ul>
+            {edges.map((edge) => {
+              const { id, title, category } = edge;
+              return <li key={id}>{category}</li>;
+            })}
+          </ul>
+        </div>
+      </Container>
     </Layout>
   );
 };

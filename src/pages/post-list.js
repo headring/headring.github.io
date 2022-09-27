@@ -1,15 +1,14 @@
 import React from "react";
 import Categories from "../components/Categories";
-import Layout from "../components/Layout";
 
 import { useCategory } from "../hooks/use-site-category";
 import { useSitePostdata } from "../hooks/use-site-allmarkdown";
-import BoardPage from "../templates/PostListTemplate";
+import BoardPage from "../templates/BoardTemplate";
 
 function PostListPage() {
   let categories = useCategory();
   let datas = useSitePostdata();
-
+  console.log("categories", categories);
   return (
     <>
       <BoardPage allData={datas}>
