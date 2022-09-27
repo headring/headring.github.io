@@ -6,6 +6,7 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata.js";
 import Header from "../Header";
 import Footer from "../Footer";
 
+import GlobalStyle from "../../styles/GlobalStyle";
 import { Wapper } from "./styles";
 
 const Layout = ({ children }) => {
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[

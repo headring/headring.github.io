@@ -25,7 +25,7 @@ const Footer = () => {
           return (
             <li key={id}>
               <a href={href} target="_blank" alt={name}>
-                <FontAwesomeIcon icon={icon} fontSize={"23px"} />
+                <FontAwesomeIcon icon={icon} fontSize={"22px"} />
               </a>
             </li>
           );

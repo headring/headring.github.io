@@ -13,7 +13,7 @@ const Categories = ({ data }) => {
             <li key={project.id}>
               <Link
                 to={
-                  "/PostListPage/" +
+                  "/post-list/" +
                   project.frontmatter.category.replace(/\s/g, "-")
                 }
               >

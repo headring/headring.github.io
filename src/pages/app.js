@@ -11,18 +11,15 @@ import ContentsPage from "./ContentsPage";
 import MainPage from "./MainPage";
 import PostListPage from "./PostListPage";
 
-import GlobalStyle from "../styles/GlobalStyle";
-
 const App = () => (
   <Layout>
-    <GlobalStyle />
     <Router>
       <MainPage path="/" />
-      <PrivateRoute path="/app/profile" component={Profile} />
-      <Login path="/app/login" />
-      <Write path="/app/write" />
-      <ContentsPage path="/app/contents" />
-      <PostListPage path="/PostListPage" />
+      <PrivateRoute path="/profile" component={Profile} />
+      <Login path="/login" />
+      <Write path="/write" />
+      <ContentsPage path="/contents" />
+      <PostListPage path="/post-list" />
     </Router>
   </Layout>
 );

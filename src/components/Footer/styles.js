@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import { containerWidth } from "../../styles/CommonStyle";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
-  max-width: 960px;
   padding: 1.45rem 1.0875rem;
-  height: 72px;
+  height: 70px;
+  ${containerWidth}
 `;
 
 export const Sns = styled.ul`

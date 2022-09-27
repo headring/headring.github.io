@@ -1,7 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const usePostList = ({ category }) => {
-  console.log("pageContext", category);
+export const usePostList = () => {
   const data = useStaticQuery(
     graphql`
       query ($category: String) {
