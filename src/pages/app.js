@@ -8,9 +8,10 @@ import Profile from "../components/profile";
 import Login from "../components/login";
 import Write from "./write";
 import ContentsPage from "./ContentsPage";
-import { useState } from "react";
-import GlobalStyle from "../styles/GlobalStyle";
 import MainPage from "./MainPage";
+import PostListPage from "./PostListPage";
+
+import GlobalStyle from "../styles/GlobalStyle";
 
 const App = () => (
   <Layout>
@@ -21,6 +22,7 @@ const App = () => (
       <Login path="/app/login" />
       <Write path="/app/write" />
       <ContentsPage path="/app/contents" />
+      <PostListPage path="/PostListPage" />
     </Router>
   </Layout>
 );

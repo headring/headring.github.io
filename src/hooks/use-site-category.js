@@ -4,19 +4,24 @@ export const useCategory = () => {
   const data = useStaticQuery(
     graphql`
       query CategoryQuery {
-        categories: allMarkdownRemark(limit: 2000) {
-          group(field: frontmatter___category) {
-            fieldValue
-            totalCount
-            edges {
-              node {
-                id
-              }
+        projects: allMarkdownRemark(
+          sort: { fields: frontmatter___date, order: DESC }
+        ) {
+          nodes {
+            frontmatter {
+              category
+              title
             }
+            id
+          }
+        }
+        contact: site {
+          siteMetadata {
+            title
           }
         }
       }
     `
   );
-  return data.categories.group;
+  return data;
 };
