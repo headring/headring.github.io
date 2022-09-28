@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
-import { Container } from "./styles";
+import { Container, Table, Thead, Tbody } from "./styles";
 import { useCategory } from "../../hooks/use-site-category";
 import Categories from "../../components/Categories";
 
@@ -27,14 +27,37 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
     <Layout>
       <Container>
         <Categories data={categories} />
-        <div>
-          <ul>
-            {edges.map((edge) => {
-              const { id, title, category } = edge;
-              return <li key={id}>{category}</li>;
-            })}
-          </ul>
-        </div>
+        <Table>
+          <li>
+            <Thead>
+              <li>번호</li>
+              <li></li>
+              <li>분류</li>
+              <li>제목</li>
+              <li>날짜</li>
+            </Thead>
+          </li>
+          {edges.map((edge, idx) => {
+            const { id, imgPath, title, category, date } = edge;
+            console.log("imgPath", imgPath);
+            return (
+              <li key={id}>
+                <Tbody>
+                  <li>{idx + 1}</li>
+                  <li>
+                    <img
+                      src={imgPath.childImageSharp.fluid.originalImg}
+                      alt=""
+                    />
+                  </li>
+                  <li>{category}</li>
+                  <li>{title}</li>
+                  <li>{date}</li>
+                </Tbody>
+              </li>
+            );
+          })}
+        </Table>
       </Container>
     </Layout>
   );
