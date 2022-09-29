@@ -9,6 +9,9 @@ export const useSitePostdata = () => {
             node {
               id
               excerpt(format: PLAIN)
+              fields {
+                slug
+              }
               frontmatter {
                 date
                 title
@@ -37,6 +40,7 @@ export const useSitePostdata = () => {
       date: data.node.frontmatter.date,
       imgPath: data.node.frontmatter.imgPath,
       contents: data.node.excerpt,
+      slug: data.node.fields.slug,
     };
     return newPost;
   });
