@@ -6,15 +6,20 @@ import Utterances from "../../components/Utterances";
 import CommentModal from "../../components/CommentModal";
 import { useState } from "react";
 import { ModalBackdrop } from "./styles";
-import { graphql } from "gatsby";
 
-function ContentsPage({ globalTheme }) {
+function ContentsPage({ globalTheme, title, date, categories, html }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
       <GlobalStyle />
-      <ContentsBox globalTheme={globalTheme} />
+      <ContentsBox
+        globalTheme={globalTheme}
+        title={title}
+        date={date}
+        categories={categories}
+        html={html}
+      />
       <Utterances />
       {modalOpen ? (
         <ModalBackdrop onClick={() => setModalOpen(!modalOpen)}>
@@ -28,19 +33,3 @@ function ContentsPage({ globalTheme }) {
 }
 
 export default ContentsPage;
-
-// export const queryMarkdownDataBySlug = graphql`
-//   query queryMarkdownDataBySlug($slug: String) {
-//     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
-//       edges {
-//         node {
-//           html
-//           frontmatter {
-//             title
-//             date(formatString: "YYYY.MM.DD.")
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
