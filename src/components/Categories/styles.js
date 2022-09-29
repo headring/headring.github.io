@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   font-size: 1rem;
+  margin-right: 50px;
   h1 {
     width: 200px;
     font-size: 1.1rem;

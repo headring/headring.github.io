@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
-import { Container, Table, Thead, Tbody } from "./styles";
+import { Container, Content, Table, Thead, Tbody, Select } from "./styles";
 import { useCategory } from "../../hooks/use-site-category";
 import Categories from "../../components/Categories";
+import Pagination from "../../components/Pagination";
 
 const BoardPage = ({ data, location, pageContext, allData }) => {
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
+
   let categories = useCategory();
   let edges = data?.allMarkdownRemark ? data?.allMarkdownRemark.edges : allData;
 
@@ -27,37 +32,55 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
     <Layout>
       <Container>
         <Categories data={categories} />
-        <Table>
-          <li>
-            <Thead>
-              <li>번호</li>
-              <li></li>
-              <li>분류</li>
-              <li>제목</li>
-              <li>날짜</li>
-            </Thead>
-          </li>
-          {edges.map((edge, idx) => {
-            const { id, imgPath, title, category, date } = edge;
-            return (
-              <li key={id}>
-                <Tbody>
-                  <li>{edges.length - idx}</li>
-                  <li>
-                    <img
-                      src={imgPath.childImageSharp.fluid.originalImg}
-                      alt={imgPath.childImageSharp.fluid.originalName}
-                    />
-                  </li>
-                  <li>{category}</li>
-                  <li>{title}</li>
-                  <li>{date}</li>
-                </Tbody>
-              </li>
-            );
-          })}
-        </Table>
-        {/* <Pagenation pageContext={}/> */}
+        <Content>
+          <Table>
+            <li>
+              <Thead>
+                <li>번호</li>
+                <li></li>
+                <li>분류</li>
+                <li>제목</li>
+                <li>날짜</li>
+              </Thead>
+            </li>
+            {edges.slice(offset, offset + limit).map((edge, idx) => {
+              const { id, imgPath, title, category, date } = edge;
+              return (
+                <li key={id}>
+                  <Tbody>
+                    <li>{edges.length - idx}</li>
+                    <li>
+                      <img
+                        src={imgPath.childImageSharp.fluid.originalImg}
+                        alt={imgPath.childImageSharp.fluid.originalName}
+                      />
+                    </li>
+                    <li>{category}</li>
+                    <li>{title}</li>
+                    <li>{date}</li>
+                  </Tbody>
+                </li>
+              );
+            })}
+          </Table>
+          <Select
+            type="number"
+            value={limit}
+            onChange={({ target: { value } }) => setLimit(Number(value))}
+          >
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </Select>
+          <Pagination
+            total={edges.length}
+            limit={limit}
+            page={page}
+            setPage={setPage}
+          />
+        </Content>
       </Container>
     </Layout>
   );
@@ -66,9 +89,8 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
 export default BoardPage;
 
 export const PostListQuery = graphql`
-  query ($category: String, $skip: Int!) {
+  query ($category: String) {
     allMarkdownRemark(
-      skip: $skip
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { category: { in: [$category] } } }

@@ -21,10 +21,15 @@ export const Container = styled.section`
   }
 `;
 
-export const Table = styled.ul`
-  flex-grow: 1;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin: 28px 0 0 50px;
+`;
+
+export const Table = styled.ul`
+  margin: 28px 0 0 0;
+  flex-grow: 1;
 `;
 
 export const Thead = styled.ul`
@@ -57,4 +62,13 @@ export const Tbody = styled.ul`
       vertical-align: middle;
     }
   }
+`;
+
+export const Select = styled.select`
+  width: 70px;
+  margin-top: 10px;
+  margin-left: auto;
+  padding: 3px 7px;
+  border: 1px solid #000;
+  font-size: 0.9rem;
 `;
