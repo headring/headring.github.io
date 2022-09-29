@@ -1,28 +1,6 @@
 const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { data } = await graphql(`
-    query {
-      allMarkdownRemark {
-        nodes {
-          frontmatter {
-            category
-          }
-        }
-      }
-    }
-  `);
-
-  data.allMarkdownRemark.nodes.forEach((node) => {
-    actions.createPage({
-      path: "/post-list/" + node.frontmatter.category.replace(/\s/g, "-"),
-      component: path.resolve("./src/templates/BoardTemplate/index.js"),
-      context: { category: node.frontmatter.category },
-    });
-  });
-};
-
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {};
@@ -52,6 +30,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 // Generate Post Page Through Markdown Data
 exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            category
+          }
+        }
+      }
+    }
+  `);
+
+  data.allMarkdownRemark.nodes.forEach((node) => {
+    actions.createPage({
+      path: "/post-list/" + node.frontmatter.category.replace(/\s/g, "-"),
+      component: path.resolve("./src/templates/BoardTemplate/index.js"),
+      context: { category: node.frontmatter.category },
+    });
+  });
+
+  /////////////////////////////////////
+
   const { createPage } = actions;
 
   // Get All Markdown File For Paging
@@ -95,7 +95,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     },
   }) => {
     const pageOptions = {
-      path: slug,
+      path: `/post${slug}`,
       component: PostTemplateComponent,
       context: { slug },
     };
