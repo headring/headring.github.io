@@ -5,12 +5,13 @@ import { Router } from "@reach/router";
 
 import Layout from "../components/Layout";
 import Profile from "../components/profile";
-import Login from "../components/login";
+import Login from "../components/Login";
 import Write from "./write";
 import MainPage from "./MainPage";
 import PostListPage from "./post-list";
 
 const App = () => (
+
   <Layout>
     <Router>
       <MainPage path="/" />
