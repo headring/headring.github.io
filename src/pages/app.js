@@ -5,14 +5,14 @@ import { Router } from "@reach/router";
 
 import Layout from "../components/Layout";
 import Profile from "../components/profile";
-import Login from "../components/login";
+import Login from "../components/Login";
 import Write from "./write";
 import ContentsPage from "./ContentsPage";
-import { useState } from "react";
 import GlobalStyle from "../styles/GlobalStyle";
 import MainPage from "./MainPage";
 
 const App = () => (
+
   <Layout>
     <GlobalStyle />
     <Router>

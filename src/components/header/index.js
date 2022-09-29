@@ -2,7 +2,7 @@ import React from "react";
 import { Link, navigate } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { getUser, isLoggedIn, logout } from "../../services/auth";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Container } from "./styles";
 import { Modal } from "../Modal";
 
@@ -35,7 +35,7 @@ const Header = ({ siteTitle }) => {
         <Link to="/app/contents">글 상세페이지(임시)</Link>
         {/* <Link to="/">검색</Link> */}
         <Modal inActive={"검색"} active={"입력 중"} type={"form"}></Modal>
-        <Link to="/app/profile">Profile</Link>
+        <Link to="/app/profile">로그인</Link>
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
             <label>
