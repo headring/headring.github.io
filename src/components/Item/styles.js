@@ -4,10 +4,12 @@ export const Wapper = styled.li`
   border: 1px solid #000;
 `;
 export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 268px;
-  text-align: center;
   img {
-    height: 100%;
+    height: 80%;
   }
 `;
 
@@ -49,6 +51,7 @@ export const Bottom = styled.div`
       color: #6300eb;
     }
     :nth-of-type(2) {
+      margin-top: 5px;
       color: #666;
     }
   }
