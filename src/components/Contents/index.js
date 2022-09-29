@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Article, Title, StyledContent, Box } from "./style";
+import {
+  Article,
+  Title,
+  Date,
+  StyledContent,
+  Box,
+  MarkdownRenderer,
+} from "./style";
 import ReactMarkdown from "react-markdown";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import MDEditor from "@uiw/react-md-editor"; //
@@ -39,27 +46,28 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 **Note: this is a one-way operation. Once you \`eject\`, you can't go back!**`;
 
-const Contents = () => {
+const Contents = ({ globalTheme, title, date, categories, html }) => {
   const [theme, setTheme] = useState(window.localStorage.getItem("theme"));
   // useEffect(() => {
   //   setTheme(window.localStorage.getItem("theme"));
   // }, []);
   return (
     <Article>
-      <Title>{"S3.[자료구조/알고리즘] 재귀"}</Title>
-      <span>{"Bootcamp "}</span>
-      <span>{"2022. 8. 23. 14:45"}</span>
+      <Title>{title}</Title>
+      <span>{categories}</span>
+      <Date>{date}</Date>
       {/* <StyledContent id="Markdown">
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </StyledContent> */}
-      <Box data-color-mode={theme}>
+      {/* <Box data-color-mode={theme}>
         <MDEditor
           preview="preview"
           height={972}
-          value={markdown}
+          value={html}
           hideToolbar={true}
         />
-      </Box>
+      </Box> */}
+      <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
     </Article>
   );
 };

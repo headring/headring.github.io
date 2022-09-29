@@ -7,13 +7,19 @@ import CommentModal from "../../components/CommentModal";
 import { useState } from "react";
 import { ModalBackdrop } from "./styles";
 
-function ContentsPage({ globalTheme }) {
+function ContentsPage({ globalTheme, title, date, categories, html }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
       <GlobalStyle />
-      <ContentsBox globalTheme={globalTheme} />
+      <ContentsBox
+        globalTheme={globalTheme}
+        title={title}
+        date={date}
+        categories={categories}
+        html={html}
+      />
       <Utterances />
       {modalOpen ? (
         <ModalBackdrop onClick={() => setModalOpen(!modalOpen)}>

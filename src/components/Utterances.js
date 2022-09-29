@@ -19,8 +19,6 @@ class Utterances extends React.Component {
     scriptEl.setAttribute("theme", "github-light");
     scriptEl.setAttribute("crossorigin", "anonymous");
     this.commentsEl.current.appendChild(scriptEl);
-    console.log(scriptEl);
-    console.log(this.commentsEl);
   }
 
   render() {
