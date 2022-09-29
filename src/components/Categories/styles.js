@@ -9,9 +9,9 @@ export const Container = styled.section`
     border-bottom: 1px solid #000;
   }
   ul {
-    margin-top: 13px;
+    margin-top: 10px;
     li {
-      line-height: 22px;
+      line-height: 25px;
     }
   }
 `;

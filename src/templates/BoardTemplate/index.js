@@ -39,15 +39,14 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
           </li>
           {edges.map((edge, idx) => {
             const { id, imgPath, title, category, date } = edge;
-            console.log("imgPath", imgPath);
             return (
               <li key={id}>
                 <Tbody>
-                  <li>{idx + 1}</li>
+                  <li>{edges.length - idx}</li>
                   <li>
                     <img
                       src={imgPath.childImageSharp.fluid.originalImg}
-                      alt=""
+                      alt={imgPath.childImageSharp.fluid.originalName}
                     />
                   </li>
                   <li>{category}</li>
@@ -58,6 +57,7 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
             );
           })}
         </Table>
+        {/* <Pagenation pageContext={}/> */}
       </Container>
     </Layout>
   );
@@ -66,8 +66,9 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
 export default BoardPage;
 
 export const PostListQuery = graphql`
-  query ($category: String) {
+  query ($category: String, $skip: Int!) {
     allMarkdownRemark(
+      skip: $skip
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { category: { in: [$category] } } }

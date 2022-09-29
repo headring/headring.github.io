@@ -46,12 +46,13 @@ export const Tbody = styled.ul`
   border-bottom: 1px solid #e9e9e9;
   li {
     text-align: center;
+    font-weight: 400;
     &:nth-child(4) {
       text-align: left;
       margin-left: 50px;
     }
     img {
-      width: 80px;
+      width: 70px;
       padding: 5%;
       vertical-align: middle;
     }

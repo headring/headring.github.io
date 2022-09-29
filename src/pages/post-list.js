@@ -8,7 +8,7 @@ import BoardPage from "../templates/BoardTemplate";
 function PostListPage() {
   let categories = useCategory();
   let datas = useSitePostdata();
-  console.log("categories", categories);
+
   return (
     <>
       <BoardPage allData={datas}>

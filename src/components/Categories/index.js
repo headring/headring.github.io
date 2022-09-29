@@ -10,7 +10,9 @@ const Categories = ({ data }) => {
     <Container>
       <h1>Category</h1>
       <ul>
-        <Link to="/post-list">전체보기 ({totalCount})</Link>
+        <li>
+          <Link to="/post-list">전체보기 ({totalCount})</Link>
+        </li>
         {postList.map((post) => {
           const { id } = post.edges[0].node;
           return (
