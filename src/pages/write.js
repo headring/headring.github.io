@@ -105,7 +105,6 @@ export default function Write() {
   const [value, setValue] = useState(mkdStr);
   // const [hover, setHover] = useState<string>('');
 
-
   return (
     <>
       {/* <GlobalStyle /> */}

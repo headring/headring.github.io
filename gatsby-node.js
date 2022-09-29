@@ -16,8 +16,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   data.allMarkdownRemark.nodes.forEach((node) => {
     actions.createPage({
-      path: "/article/" + node.frontmatter.category.replace(/\s/g, "-"),
-      component: path.resolve("./src/templates/category-post-list.js"),
+      path: "/post-list/" + node.frontmatter.category.replace(/\s/g, "-"),
+      component: path.resolve("./src/templates/BoardTemplate/index.js"),
       context: { category: node.frontmatter.category },
     });
   });

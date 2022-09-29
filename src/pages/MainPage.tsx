@@ -15,17 +15,6 @@ export interface Blog{
 
 const MainPage = () => {
   let datas = useSitePostdata();
-  datas = datas.map((data:Blog)=> {
-    const newPost = {
-      id :data.node.id,
-      title:data.node.frontmatter.title,
-      category:data.node.frontmatter.category,
-      date:data.node.frontmatter.date,
-      imgPath:data.node.frontmatter.imgPath,
-      contents:data.node.excerpt
-    }
-    return newPost
-  });
 
   return (
     <main>
