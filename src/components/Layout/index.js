@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import Header from "../header";
+import Header from "../Header";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata.js";
 import { Wapper } from "./styles";
