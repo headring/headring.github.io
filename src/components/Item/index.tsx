@@ -14,7 +14,6 @@ export interface Post {
 }
 
 const Item = ({ data }: { data: Post }) => {
-  console.log('data.slug',data.slug)
   return (
     <Wapper>
       <Link to={`/post${data.slug}`}>

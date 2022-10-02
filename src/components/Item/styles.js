@@ -11,17 +11,18 @@ export const Header = styled.div`
   img {
     height: 80%;
   }
+  @media ${(props) => props.theme.mobile} {
+    display: inline-block;
+    height: 100px;
+    vertical-align: top;
+    img {
+      margin: 10px 0 0 12px;
+    }
+  }
 `;
 
 export const Main = styled.div`
   margin: 16px;
-  @media ${(props) => props.theme.desktop} {
-    background-color: red;
-  }
-  @media ${(props) => props.theme.mobile} {
-    background-color: yellow;
-  }
-
   h3 {
     margin-bottom: 16px;
     font-size: 1.2rem;
@@ -37,6 +38,11 @@ export const Main = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
+  }
+  @media ${(props) => props.theme.mobile} {
+    display: inline-block;
+    width: calc(100% - 124px);
+    vertical-align: middle;
   }
 `;
 
