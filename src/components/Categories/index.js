@@ -11,14 +11,17 @@ const Categories = ({ data }) => {
       <h1>Category</h1>
       <ul>
         <li>
-          <Link to="/post-list">전체보기 ({totalCount})</Link>
+          <Link to="/post-list">
+            전체보기 <span className="count">({totalCount})</span>
+          </Link>
         </li>
         {postList.map((post) => {
           const { id } = post.edges[0].node;
           return (
             <li key={id}>
               <Link to={"/post-list/" + post.fieldValue.replace(/\s/g, "-")}>
-                {post.fieldValue} ({post.totalCount})
+                {post.fieldValue}
+                <span className="count">({post.totalCount})</span>
               </Link>
             </li>
           );

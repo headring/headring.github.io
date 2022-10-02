@@ -19,6 +19,10 @@ export const Container = styled.section`
       flex-grow: 1;
     }
   }
+  @media ${(props) => props.theme.mobile} {
+    flex-direction: column;
+    margin: 0 -1.45rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -28,8 +32,11 @@ export const Content = styled.div`
 `;
 
 export const Table = styled.ul`
-  margin: 28px 0 0 0;
+  margin-top: 28px;
   flex-grow: 1;
+  @media ${(props) => props.theme.mobile} {
+    margin-top: 0;
+  }
 `;
 
 export const Thead = styled.ul`
@@ -41,6 +48,9 @@ export const Thead = styled.ul`
   border-bottom: 1px solid #e9e9e9;
   li {
     text-align: center;
+  }
+  @media ${(props) => props.theme.mobile} {
+    display: none;
   }
 `;
 
@@ -62,6 +72,47 @@ export const Tbody = styled.ul`
       vertical-align: middle;
     }
   }
+  @media ${(props) => props.theme.mobile} {
+    display: inline-block;
+    padding: 1rem 1.45rem;
+    li {
+      display: block;
+      width: calc(100% - 70px);
+      text-align: left;
+      padding-left: 1.45rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      float: right;
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      &:nth-child(1) {
+        display: none;
+      }
+      &:nth-child(2) {
+        float: left;
+        padding-left: 0;
+        width: 70px;
+      }
+      &:nth-child(4) {
+        margin-top: 5px;
+        margin-left: 0;
+        font-weight: 400;
+        color: #6300eb;
+        font-size: 0.9rem;
+      }
+      &:nth-child(5) {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #666;
+      }
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -71,4 +122,7 @@ export const Select = styled.select`
   padding: 3px 7px;
   border: 1px solid #000;
   font-size: 0.9rem;
+  @media ${(props) => props.theme.mobile} {
+    margin-right: 1.45rem;
+  }
 `;
