@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 export const Container = styled.section`
   display: flex;
@@ -19,7 +20,7 @@ export const Container = styled.section`
       flex-grow: 1;
     }
   }
-  @media ${(props) => props.theme.mobile} {
+  @media ${theme.mobile} {
     flex-direction: column;
     margin: 0 -1.45rem;
   }
@@ -34,7 +35,7 @@ export const Content = styled.div`
 export const Table = styled.ul`
   margin-top: 28px;
   flex-grow: 1;
-  @media ${(props) => props.theme.mobile} {
+  @media ${theme.mobile} {
     margin-top: 0;
   }
 `;
@@ -49,7 +50,7 @@ export const Thead = styled.ul`
   li {
     text-align: center;
   }
-  @media ${(props) => props.theme.mobile} {
+  @media ${theme.mobile} {
     display: none;
   }
 `;
@@ -72,7 +73,8 @@ export const Tbody = styled.ul`
       vertical-align: middle;
     }
   }
-  @media ${(props) => props.theme.mobile} {
+
+  @media ${theme.mobile} {
     display: inline-block;
     padding: 1rem 1.45rem;
     li {
@@ -122,7 +124,7 @@ export const Select = styled.select`
   padding: 3px 7px;
   border: 1px solid #000;
   font-size: 0.9rem;
-  @media ${(props) => props.theme.mobile} {
+  @media ${theme.mobile} {
     margin-right: 1.45rem;
   }
 `;

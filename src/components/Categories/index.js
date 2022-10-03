@@ -7,7 +7,7 @@ const Categories = ({ data }) => {
   const totalCount = data.totalCount;
 
   return (
-    <Container>
+    <Container className="category">
       <h1>Category</h1>
       <ul>
         <li>
