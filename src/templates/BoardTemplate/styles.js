@@ -73,6 +73,9 @@ export const Tbody = styled.ul`
       vertical-align: middle;
     }
   }
+  :hover {
+    background: #efefef;
+  }
 
   @media ${theme.mobile} {
     display: inline-block;
