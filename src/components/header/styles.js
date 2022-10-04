@@ -13,10 +13,11 @@ const hue = keyframes`
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   margin: 0 auto;
   padding: 1.45rem 1.0875rem;
-  height: 72px;
+  height: 90px;
   ${containerWidth}
 
   .logo {
