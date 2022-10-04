@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { containerWidth } from "../../styles/CommonStyle";
+
+const hue = keyframes`
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(-360deg);
+    }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -9,6 +18,17 @@ export const Container = styled.div`
   padding: 1.45rem 1.0875rem;
   height: 72px;
   ${containerWidth}
+
+  .logo {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: ${hue} 10s infinite linear;
+    animation: ${hue} 10s infinite linear;
+  }
 
   a {
     position: relative;
