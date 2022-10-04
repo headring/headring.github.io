@@ -8,7 +8,7 @@ export const Container = styled.section`
     width: 200px;
     font-size: 1.1rem;
     padding-bottom: 10px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--textNormal);
   }
   li {
     line-height: 22px;
@@ -45,7 +45,7 @@ export const Thead = styled.ul`
   height: 45px;
   align-items: center;
   font-weight: 700;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--textNormal);
   border-bottom: 1px solid #e9e9e9;
   li {
     text-align: center;
@@ -74,7 +74,7 @@ export const Tbody = styled.ul`
     }
   }
   :hover {
-    background: #efefef;
+    background: var(--hoverColor);
   }
 
   @media ${theme.mobile} {
@@ -125,7 +125,7 @@ export const Select = styled.select`
   margin-top: 10px;
   margin-left: auto;
   padding: 3px 7px;
-  border: 1px solid #000;
+  border: 1px solid var(--textNormal);
   font-size: 0.9rem;
   @media ${theme.mobile} {
     margin-right: 1.45rem;

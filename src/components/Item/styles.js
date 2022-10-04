@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wapper = styled.li`
-  border: 1px solid #000;
+  border: 1px solid var(--textNormal);
   transition: all 0.1s;
   :hover {
     transform: translate(3px, 3px);
@@ -53,7 +53,7 @@ export const Main = styled.div`
 export const Bottom = styled.div`
   position: relative;
   padding: 16px;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--textNormal);
   span {
     display: block;
     font-size: 0.9rem;

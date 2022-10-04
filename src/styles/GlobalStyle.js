@@ -71,6 +71,7 @@ const GlobalStyle = createGlobalStyle`
     --textTitle: #222;
     --textLink: blue;
     --hr: hsla(0, 0%, 0%, 0.2);
+    --hoverColor: #efefef; 
 
     background-color: var(--bg);
 
@@ -87,6 +88,7 @@ const GlobalStyle = createGlobalStyle`
     --textTitle: white;
     --textLink: yellow;
     --hr: hsla(0, 0%, 100%, 0.2);
+    --hoverColor: #333; 
 
     background-color: var(--bg);
     color: var(--textTitle);
