@@ -18,6 +18,10 @@ export const Container = styled.section`
     li {
       line-height: 25px;
     }
+    a.active {
+      font-weight: 700;
+      color: #6300eb;
+    }
   }
   @media ${theme.mobile} {
     margin-right: 0;

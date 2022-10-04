@@ -11,7 +11,7 @@ const Categories = ({ data }) => {
       <h1>Category</h1>
       <ul>
         <li>
-          <Link to="/post-list">
+          <Link to="/post-list" activeClassName="active">
             전체보기 <span className="count">({totalCount})</span>
           </Link>
         </li>
@@ -19,7 +19,10 @@ const Categories = ({ data }) => {
           const { id } = post.edges[0].node;
           return (
             <li key={id}>
-              <Link to={"/post-list/" + post.fieldValue.replace(/\s/g, "-")}>
+              <Link
+                to={"/post-list/" + post.fieldValue.replace(/\s/g, "-")}
+                activeClassName="active"
+              >
                 {post.fieldValue}
                 <span className="count">({post.totalCount})</span>
               </Link>
