@@ -23,15 +23,16 @@ export const Modal = ({ type, inputText}) => {
         </ModalBtn>
         {isOpen === true ? <ModalBackdrop onClick={openModalHandler}>
           <ModalView onClick={(e) => e.stopPropagation()}>
-            <span onClick={openModalHandler} className='close-btn'>&times;</span>
+            {/* <span onClick={openModalHandler} className='close-btn'>&times;</span> */}
             {type === 'form' ? 
             <form onSubmit={onSubmit} action='/searchresult'>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
               <input
                 placeholder="검색어를 입력하세요"
                 value={searchText}
                 onChange={handleChange}
               />
-              <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+              {/* <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button> */}
             </form> 
             : 
             <div className="desc">{inputText}</div>}

@@ -45,8 +45,8 @@ export const ModalView = styled.div.attrs(props => ({
     flex-direction: column;
     border-radius: 10px;
     background-color: #ffffff;
-    width: 30%;
-    height: 30%;
+    width: 60%;
+    height: 25%;
 
     > span.close-btn {
       margin-top: -5%;
@@ -58,12 +58,33 @@ export const ModalView = styled.div.attrs(props => ({
       margin-top: 25px;
       color: #4000c7;
     }
+    form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position:relative;
+      width: 56%;
+      height: 30%;
+      border: 2px solid black;
+      font-size: 180%
+    }
+    svg{
+      padding-left: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: text;
+    }
     input {
-      height: 150%;
-      border-radius: 40px;
+      padding-left: 1rem;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-size: 80%;
     }
-    button {
+    /* button {
       height: 150%;
-      border-radius: 40px;
-    }
+    } */
 `;

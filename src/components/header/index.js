@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => {
       <Link className="logo" to="/">
         {siteTitle}
       </Link>
-
+      <div id="hamburger-menu"></div>
       <span>{content.message}</span>
       <Link to="/post-list">모든 글 보기</Link>
       {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
