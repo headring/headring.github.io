@@ -26,6 +26,7 @@ export const Modal = ({ type, inputText }) => {
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => setSearchText(e.target.value);
+
   const onSubmit = () => {
     window.localStorage.setItem("searchText", searchText);
   };

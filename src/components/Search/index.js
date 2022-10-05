@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../Layout";
 import { useSitePostdata } from "../../hooks/use-site-allmarkdown";
 import ItemList from "../ItemList";
-import GlobalStyle from "../../styles/GlobalStyle";
 
 // el.content.match(regex)
 const Search = () => {
@@ -18,7 +17,6 @@ const Search = () => {
 
   return (
     <>
-      <GlobalStyle />
       <Layout>
         <ItemList datas={datas} />
       </Layout>
