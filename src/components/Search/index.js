@@ -3,9 +3,10 @@ import Layout from "../Layout";
 import { useSitePostdata } from "../../hooks/use-site-allmarkdown";
 import ItemList from "../ItemList";
 
-// el.content.match(regex)
+const isBrowser = typeof window !== "undefined";
+
 const Search = () => {
-  if (window !== "undefined") {
+  if (isBrowser) {
     let searchText = localStorage.getItem("searchText").toLowerCase();
     let datas = useSitePostdata().filter((el) => {
       return (
@@ -14,11 +15,9 @@ const Search = () => {
       );
     });
     return (
-      <>
-        <Layout>
-          <ItemList datas={datas} />
-        </Layout>
-      </>
+      <Layout>
+        <ItemList datas={datas} />
+      </Layout>
     );
   }
 };
