@@ -12,6 +12,8 @@ import Write from "./write";
 import MainPage from "./MainPage";
 import PostListPage from "./post-list";
 import SearchResult from "./searchresult";
+import NotFoundPage from "./404";
+import ContentsPage from "./contents";
 
 export const changeTheme = () => {
   return {
@@ -43,6 +45,8 @@ const App = () => (
         <PrivateRoute path="/app/profile" component={Profile} />
         <PrivateRoute path="/app/write" component={Write} />
         <Login path="/app/login" />
+        <NotFoundPage path="/404" />
+        <ContentsPage path="contents" />
         <SearchResult path="/searchresult" />
         <PostListPage path="/post-list" />
       </Router>
