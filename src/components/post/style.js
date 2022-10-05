@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import theme from '../../styles/theme';
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -14,19 +15,16 @@ export const PageWrapper = styled.div`
         display: block;
       }
   }
-  @media ${(props) => props.theme.mobile} {
+  @media ${theme.mobile} {
     .md-editor.w-md-editor-show-live {
       .w-md-editor-input {
-        /* width: 100%; */
+        width: 100%;
       }
       .w-md-editor-preview {
-        /* display: none; */
+        display: none;
       }
     }
   }
-`;
-export const HiddenForm = styled.form`
-  visibility: hidden;
 `;
 export const Button = styled.button`
   font-size: 32px;

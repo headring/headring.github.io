@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
-import { PageWrapper, HiddenForm, Button } from "./style";
-import downloadTxtFile from "./downloadTxtFile";
+import { PageWrapper, Button } from "./style";
+import {downloadTxtFile, tempStorage} from "./postOnClickers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const mkdStr = `
 ---
@@ -16,6 +18,13 @@ imgPath: "../images/gatsby-icon.png"
 
 const Post = () => {
   const [value, setValue] = useState(mkdStr);
+  
+  useEffect(() => {
+    let localLoader = localStorage.getItem('tempMkd')
+    if(localLoader) return setValue(localLoader);
+
+  }, [])
+  
   return (
     <>
       <PageWrapper>
@@ -27,9 +36,12 @@ const Post = () => {
               onChange={setValue}
             />
             <div className="button__rows">
-              <Button onClick={e=> window.location.replace('/')}>⬅️ 나가기</Button>
+              <Button onClick={e=> window.location.replace('/')}> <FontAwesomeIcon icon={faArrowLeft} fontSize={'27px'} /> 나가기</Button>
               <Button float="right" color="#6300eb" onClick={downloadTxtFile}>
                 출간하기
+              </Button>
+              <Button float="right" onClick={tempStorage}>
+                임시저장
               </Button>
             </div>
           </div>

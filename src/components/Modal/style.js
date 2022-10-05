@@ -21,20 +21,12 @@ export const ModalContainer = styled.div`
 `;
 
 export const ModalBtn = styled.div`
-  /* background-color: #4000c7;
-  text-decoration: none;
-  border: none;
-  padding: 20px;
-  color: white;
-  border-radius: 30px;
-  cursor: grab; */
   height: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1rem;
   border-radius: 1rem;
   outline: none;
-  /* font-weight: bold; */
   word-break: keep-all;
   background: var(--bg-element2);
   border: 1px solid var(--bg-element5);
@@ -53,8 +45,8 @@ export const ModalView = styled.div.attrs(props => ({
     flex-direction: column;
     border-radius: 10px;
     background-color: #ffffff;
-    width: 60%;
-    height: 20%;
+    width: 30%;
+    height: 30%;
 
     > span.close-btn {
       margin-top: -5%;
@@ -65,5 +57,13 @@ export const ModalView = styled.div.attrs(props => ({
     > div.desc {
       margin-top: 25px;
       color: #4000c7;
+    }
+    input {
+      height: 150%;
+      border-radius: 40px;
+    }
+    button {
+      height: 150%;
+      border-radius: 40px;
     }
 `;

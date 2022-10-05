@@ -31,8 +31,7 @@ const Header = ({ siteTitle }) => {
       <span>{content.message}</span>
       <Link to="/post-list">모든 글 보기</Link>
       {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
-
-      <Modal inActive={"검색"} active={"입력 중"} type={"form"}></Modal>
+      <Modal active={"검색"} type={"form"}></Modal>
       <Link to="/app/profile">Profile</Link>
       <ThemeToggler>
         {({ theme, toggleTheme }) => (
@@ -44,7 +43,7 @@ const Header = ({ siteTitle }) => {
               }}
               checked={theme === "dark"}
             />
-            Dark mode
+            <span>Dark mode</span>
           </label>
         )}
       </ThemeToggler>
