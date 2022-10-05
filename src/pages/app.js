@@ -11,6 +11,7 @@ import Login from "../components/Login";
 import Write from "./write";
 import MainPage from "./MainPage";
 import PostListPage from "./post-list";
+import SearchResult from "./searchresult";
 
 export const changeTheme = () => {
   return {
@@ -42,6 +43,7 @@ const App = () => (
         <PrivateRoute path="/app/profile" component={Profile} />
         <PrivateRoute path="/app/write" component={Write} />
         <Login path="/app/login" />
+        <SearchResult path="/searchresult" />
         <PostListPage path="/post-list" />
       </Router>
     </Layout>

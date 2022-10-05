@@ -1,6 +1,5 @@
 import React from "react";
 import Contents from "../Contents";
-// import ContentsIndex from "../ContentsIndex";
 
 function ContentsBox({ globalTheme, title, date, categories, html }) {
   return (
@@ -12,7 +11,6 @@ function ContentsBox({ globalTheme, title, date, categories, html }) {
         categories={categories}
         html={html}
       />
-      {/* <ContentsIndex /> */}
     </>
   );
 }
