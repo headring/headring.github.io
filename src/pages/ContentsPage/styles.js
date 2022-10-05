@@ -15,7 +15,7 @@ export const ModalBackdrop = styled.div`
 
 export const CommentContainer = styled.div`
   .utterances {
-    width: 1180px;
-    max-width: 90%;
+    width:100%;
+    max-width: 100%;
   }
 `;

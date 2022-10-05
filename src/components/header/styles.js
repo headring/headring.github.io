@@ -16,7 +16,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 1.45rem 1.0875rem;
+  padding: 12px;
   height: 90px;
   ${containerWidth}
 
@@ -34,12 +34,11 @@ export const Container = styled.div`
   a.under {
     position: relative;
     display: block;
-    height: 30px;
     &::after {
       content: "";
       position: absolute;
       left: 50%;
-      bottom: 0.5rem;
+      bottom: -2px;
       width: 0;
       height: 1px;
       background-color: #6300eb;

@@ -46,7 +46,7 @@ const Post = () => {
               {" "}
               <FontAwesomeIcon icon={faArrowLeft} fontSize={"27px"} /> 나가기
             </Button>
-            <Button float="right" color="#6300eb" onClick={downloadTxtFile}>
+            <Button className="purple" float="right" onClick={downloadTxtFile}>
               출간하기
             </Button>
             <Button float="right" onClick={tempStorage}>

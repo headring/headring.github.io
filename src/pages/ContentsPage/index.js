@@ -23,13 +23,13 @@ function ContentsPage({ globalTheme, title, date, categories, html }) {
       <CommentContainer>
         <Utterances />
       </CommentContainer>
-      {modalOpen ? (
-        <ModalBackdrop onClick={() => setModalOpen(!modalOpen)}>
+      {/* {modalOpen ? (
+        <ModalBackdrop style={{display: 'none'}} onClick={() => setModalOpen(!modalOpen)}>
           <CommentModal />
         </ModalBackdrop>
       ) : (
-        <QuickCommentButton modalOpen={modalOpen} setModalOpen={setModalOpen} />
-      )}
+        <QuickCommentButton style={{display: 'none'}} modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      )} */}
     </div>
   );
 }

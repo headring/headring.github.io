@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import { ModalContainer, ModalBackdrop, ModalBtn, ModalView } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Provider } from "react-redux";
+import { legacy_createStore as createStore } from "redux";
+
+/////
+const themeReducer = (state = localStorage.getItem("theme"), action) => {
+  switch (action.type) {
+    case "CHANGETHEME":
+      return state === "dark" ? "light" : "dark";
+    default:
+      return state;
+  }
+};
+const store = createStore(themeReducer);
+/////
 
 export const Modal = ({ type, inputText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,34 +31,28 @@ export const Modal = ({ type, inputText }) => {
   };
   return (
     <>
-      <ModalContainer>
-        <ModalBtn onClick={openModalHandler}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </ModalBtn>
-        {isOpen === true ? (
-          <ModalBackdrop onClick={openModalHandler}>
+      <Provider store={store}>
+        <ModalContainer>
+          <ModalBtn onClick={openModalHandler}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </ModalBtn>
+          {isOpen === true ? <ModalBackdrop onClick={openModalHandler}>
             <ModalView onClick={(e) => e.stopPropagation()}>
-              <span onClick={openModalHandler} className="close-btn">
-                &times;
-              </span>
-              {type === "form" ? (
-                <form onSubmit={onSubmit} action="/searchresult">
-                  <input
-                    placeholder="검색어를 입력하세요"
-                    value={searchText}
-                    onChange={handleChange}
+              {type === 'form' ? 
+              <form onSubmit={onSubmit} action='/searchresult'>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                <input
+                  placeholder="검색어를 입력하세요"
+                  value={searchText}
+                  onChange={handleChange}
                   />
-                  <button>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </button>
-                </form>
-              ) : (
-                <div className="desc">{inputText}</div>
-              )}
+              </form> 
+              : 
+              <div className="desc">{inputText}</div>}
             </ModalView>
-          </ModalBackdrop>
-        ) : null}
-      </ModalContainer>
+          </ModalBackdrop> : null}
+        </ModalContainer>
+      </Provider>
     </>
   );
 };

@@ -38,14 +38,14 @@ export const ModalView = styled.div.attrs((props) => ({
   // attrs 메소드를 이용해서 아래와 같이 div 엘리먼트에 속성을 추가할 수 있습니다.
   role: "dialog",
 }))`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: #ffffff;
-  width: 30%;
-  height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: var(--bg);
+    width: 60%;
+    height: 25%;
 
   > span.close-btn {
     margin-top: -5%;
@@ -53,16 +53,36 @@ export const ModalView = styled.div.attrs((props) => ({
     cursor: pointer;
   }
 
-  > div.desc {
-    margin-top: 25px;
-    color: #4000c7;
-  }
-  input {
-    height: 150%;
-    border-radius: 40px;
-  }
-  button {
-    height: 150%;
-    border-radius: 40px;
-  }
+    > div.desc {
+      margin-top: 25px;
+      color: #4000c7;
+    }
+    form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position:relative;
+      width: 56%;
+      height: 30%;
+      border: 2px solid var(--textTitle);
+      font-size: 180%
+    }
+    svg{
+      padding-left: 1rem;
+      cursor: text;
+    }
+    input {
+      padding-left: 1rem;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-size: 80%;
+      background-color: var(--bg);
+      color: var(--textTitle);
+    }
+    /* button {
+      height: 150%;
+    } */
 `;
