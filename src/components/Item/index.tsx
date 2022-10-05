@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Wapper, Header, Main, Bottom } from "../Item/styles";
+import { Link } from 'gatsby';
 
 export interface Post {
   id: number;
@@ -9,11 +10,14 @@ export interface Post {
   category: string;
   contents: string;
   imgPath: { childImageSharp: { fluid: { originalImg: string } } };
+  slug: string;
 }
 
 const Item = ({ data }: { data: Post }) => {
+  console.log('data.slug',data.slug)
   return (
     <Wapper>
+      <Link to={`/post${data.slug}`}>
       <Header>
         <img
           src={data.imgPath.childImageSharp.fluid.originalImg}
@@ -29,6 +33,7 @@ const Item = ({ data }: { data: Post }) => {
         <span>{data.date}</span>
         <button>하트</button>
       </Bottom>
+      </Link>
     </Wapper>
   );
 };

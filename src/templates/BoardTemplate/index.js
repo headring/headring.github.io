@@ -23,6 +23,7 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
         date: data.node.frontmatter.date,
         imgPath: data.node.frontmatter.imgPath,
         contents: data.node.excerpt,
+        slug: data.node.fields.slug,
       };
       return newPost;
     });
@@ -44,21 +45,23 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
               </Thead>
             </li>
             {edges.slice(offset, offset + limit).map((edge, idx) => {
-              const { id, imgPath, title, category, date } = edge;
+              const { id, imgPath, title, category, date, slug } = edge;
               return (
                 <li key={id}>
-                  <Tbody>
-                    <li>{edges.length - idx}</li>
-                    <li>
-                      <img
-                        src={imgPath.childImageSharp.fluid.originalImg}
-                        alt={imgPath.childImageSharp.fluid.originalName}
-                      />
-                    </li>
-                    <li>{category}</li>
-                    <li>{title}</li>
-                    <li>{date}</li>
-                  </Tbody>
+                  <Link to={`/post${slug}`}>
+                    <Tbody>
+                      <li>{edges.length - idx}</li>
+                      <li>
+                        <img
+                          src={imgPath.childImageSharp.fluid.originalImg}
+                          alt={imgPath.childImageSharp.fluid.originalName}
+                        />
+                      </li>
+                      <li>{category}</li>
+                      <li>{title}</li>
+                      <li>{date}</li>
+                    </Tbody>
+                  </Link>
                 </li>
               );
             })}
