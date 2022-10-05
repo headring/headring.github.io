@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Title = styled.strong`
   /* display: flex;
   justify-content: center; */
-  width: 768px;
+  /* width: 768px; */
+  width: 1180px;
+  max-width: 90%;
   font-size: 3rem;
   font-weight: 800;
   margin: 0 auto;
@@ -13,7 +15,8 @@ export const Title = styled.strong`
 export const Date = styled.div`
   /* display: flex;
   justify-content: center; */
-  width: 768px;
+  width: 1180px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 12px;
 `;
@@ -233,7 +236,9 @@ export const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 768px;
+  /* width: 768px; */
+  width: 1180px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 16px;
   word-break: break-all;

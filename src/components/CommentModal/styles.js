@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 240px;
+  width: 200px;
   height: auto;
   overflow: scroll;
 

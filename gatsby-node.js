@@ -50,7 +50,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
-
   const { createPage } = actions;
 
   // Get All Markdown File For Paging
