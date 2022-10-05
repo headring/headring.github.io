@@ -1,11 +1,29 @@
 import React from "react";
-import ContentsBox from "../../components/ContentsBox";
-import QuickCommentButton from "../../components/QuickCommentButton";
-import GlobalStyle from "../../styles/GlobalStyle";
-import Utterances from "../../components/Utterances";
-import CommentModal from "../../components/CommentModal";
+import ContentsBox from "../components/ContentsBox";
+import GlobalStyle from "../styles/GlobalStyle";
+import Utterances from "../components/Utterances";
 import { useState } from "react";
-import { ModalBackdrop, CommentContainer } from "./styles";
+
+import styled from "styled-components";
+export const ModalBackdrop = styled.div`
+  // TODO : Modal이 떴을 때의 배경을 깔아주는 CSS를 구현합니다.
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+`;
+
+export const CommentContainer = styled.div`
+  .utterances {
+    width: 100%;
+    max-width: 100%;
+  }
+`;
 
 function ContentsPage({ globalTheme, title, date, categories, html }) {
   const [modalOpen, setModalOpen] = useState(false);
