@@ -17,14 +17,7 @@ const Header = ({ siteTitle }) => {
 
   return (
     <Container>
-      <Link
-        className="logo"
-        to="/"
-        style={{
-          textDecoration: "none",
-          fontSize: "28px",
-        }}
-      >
+      <Link className="logo" to="/">
         {siteTitle}
       </Link>
 

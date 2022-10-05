@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const Wapper = styled.li`
-  border: 1px solid #000;
+  border: 1px solid var(--textNormal);
+  transition: all 0.1s;
+  :hover {
+    transform: translate(3px, 3px);
+  }
 `;
 export const Header = styled.div`
   display: flex;
@@ -11,17 +15,18 @@ export const Header = styled.div`
   img {
     height: 80%;
   }
+  @media ${(props) => props.theme.mobile} {
+    display: inline-block;
+    height: 100px;
+    vertical-align: top;
+    img {
+      margin: 10px 0 0 12px;
+    }
+  }
 `;
 
 export const Main = styled.div`
   margin: 16px;
-  @media ${(props) => props.theme.desktop} {
-    background-color: red;
-  }
-  @media ${(props) => props.theme.mobile} {
-    background-color: yellow;
-  }
-
   h3 {
     margin-bottom: 16px;
     font-size: 1.2rem;
@@ -38,27 +43,37 @@ export const Main = styled.div`
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
   }
+  @media ${(props) => props.theme.mobile} {
+    display: inline-block;
+    width: calc(100% - 124px);
+    vertical-align: middle;
+  }
 `;
 
 export const Bottom = styled.div`
   position: relative;
   padding: 16px;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--textNormal);
   span {
     display: block;
     font-size: 0.9rem;
-    :nth-of-type(1) {
+    &:nth-child(1) {
       color: #6300eb;
     }
-    :nth-of-type(2) {
+    &:nth-child(2) {
       margin-top: 5px;
       color: #666;
     }
   }
-  button {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
+`;
+
+export const Comment = styled.div`
+  position: absolute;
+  display: flex;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  span.count {
+    margin: 3px 0 0 3px;
   }
 `;

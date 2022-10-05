@@ -10,11 +10,9 @@ function PostListPage() {
   let datas = useSitePostdata();
 
   return (
-    <>
-      <BoardPage allData={datas}>
-        <Categories data={categories} />
-      </BoardPage>
-    </>
+    <BoardPage allData={datas}>
+      <Categories data={categories} />
+    </BoardPage>
   );
 }
 
