@@ -8,6 +8,6 @@ export const Wapper = styled.div`
   ${containerWidth}
   @media ${(props) => props.theme.mobile} {
     padding: 0 1.45rem;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
 `;

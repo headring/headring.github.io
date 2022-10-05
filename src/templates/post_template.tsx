@@ -4,6 +4,20 @@ import ContentsPage from "../pages/ContentsPage";
 // import { PostPageItemType } from '../types/PostItem.types'
 import { PostFrontmatterType } from "../types/PostItem.types";
 import Layout from "../components/Layout";
+import { Provider } from "react-redux";
+import { legacy_createStore as createStore } from "redux";
+
+/////
+const themeReducer = (state = localStorage.getItem("theme"), action: any) => {
+  switch (action.type) {
+    case "CHANGETHEME":
+      return state === "dark" ? "light" : "dark";
+    default:
+      return state;
+  }
+};
+const store = createStore(themeReducer);
+/////
 
 type PostTemplateProps = {
   data: {
@@ -27,15 +41,17 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   console.log("data:", title);
 
   return (
-    <Layout>
-      <ContentsPage
-        globalTheme={"light"}
-        title={title}
-        date={date}
-        categories={categories}
-        html={html}
-      />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <ContentsPage
+          globalTheme={"light"}
+          title={title}
+          date={date}
+          categories={categories}
+          html={html}
+        />
+      </Layout>
+    </Provider>
   );
 };
 

@@ -16,7 +16,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 1.45rem 1.0875rem;
+  padding: 12px;
   height: 90px;
   ${containerWidth}
 
@@ -31,13 +31,14 @@ export const Container = styled.div`
     animation: ${hue} 10s infinite linear;
   }
 
-  a {
+  a.under {
     position: relative;
+    display: block;
     &::after {
       content: "";
       position: absolute;
       left: 50%;
-      bottom: 0.5rem;
+      bottom: -2px;
       width: 0;
       height: 1px;
       background-color: #6300eb;
@@ -48,4 +49,51 @@ export const Container = styled.div`
       left: 0;
     }
   }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* height: 72px; */
+`;
+
+export const Button = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 12px;
+`;
+
+export const Icons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 12px;
+  /* margin: 0 auto;
+  height: 72px; */
+`;
+
+export const Icon = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  width: 20px;
+`;
+
+export const Logo = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+`;
+
+export const Dark = styled.div`
+  /* display: inline-block; */
+  display: flex;
+  /* position: relative; */
+  justify-content: center;
+  cursor: pointer;
+  width: 28px;
 `;

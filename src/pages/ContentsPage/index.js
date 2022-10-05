@@ -5,7 +5,7 @@ import GlobalStyle from "../../styles/GlobalStyle";
 import Utterances from "../../components/Utterances";
 import CommentModal from "../../components/CommentModal";
 import { useState } from "react";
-import { ModalBackdrop } from "./styles";
+import { ModalBackdrop, CommentContainer } from "./styles";
 
 function ContentsPage({ globalTheme, title, date, categories, html }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,14 +20,16 @@ function ContentsPage({ globalTheme, title, date, categories, html }) {
         categories={categories}
         html={html}
       />
-      <Utterances />
-      {modalOpen ? (
-        <ModalBackdrop onClick={() => setModalOpen(!modalOpen)}>
+      <CommentContainer>
+        <Utterances />
+      </CommentContainer>
+      {/* {modalOpen ? (
+        <ModalBackdrop style={{display: 'none'}} onClick={() => setModalOpen(!modalOpen)}>
           <CommentModal />
         </ModalBackdrop>
       ) : (
-        <QuickCommentButton modalOpen={modalOpen} setModalOpen={setModalOpen} />
-      )}
+        <QuickCommentButton style={{display: 'none'}} modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      )} */}
     </div>
   );
 }
