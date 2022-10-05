@@ -28,7 +28,9 @@ export const Modal = ({ type, inputText }) => {
   const handleChange = (e) => setSearchText(e.target.value);
 
   const onSubmit = () => {
-    isBrowser && window.localStorage.setItem("searchText", searchText);
+    if (window !== "undefined") {
+      localStorage.setItem("searchText", searchText);
+    }
   };
 
   const openModalHandler = () => {
