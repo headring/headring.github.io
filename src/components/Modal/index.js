@@ -28,7 +28,7 @@ export const Modal = ({ type, inputText }) => {
   const handleChange = (e) => setSearchText(e.target.value);
 
   const onSubmit = () => {
-    if (window !== "undefined") {
+    if (isBrowser) {
       localStorage.setItem("searchText", searchText);
     }
   };
@@ -43,7 +43,7 @@ export const Modal = ({ type, inputText }) => {
           <ModalBtn onClick={openModalHandler}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </ModalBtn>
-          {isOpen === true ? (
+          {isOpen === true && isBrowser ? (
             <ModalBackdrop onClick={openModalHandler}>
               <ModalView onClick={(e) => e.stopPropagation()}>
                 {type === "form" ? (
