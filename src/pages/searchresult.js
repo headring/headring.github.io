@@ -1,14 +1,11 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Search from "../components/Search";
 
 const SearchResult = () => {
-  let searchText = localStorage.getItem("searchText");
-
   return (
-    <Layout>
-      <div>hi</div>
-      <div>{searchText}</div>
-    </Layout>
+    <>
+      <Search />
+    </>
   );
 };
 

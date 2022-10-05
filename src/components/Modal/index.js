@@ -1,15 +1,11 @@
-import { Link } from "gatsby";
-import React, { useState, useMemo } from "react";
-import styled from "styled-components";
-import { Router } from "@reach/router";
-import MainPage from "../../pages/MainPage";
+import React, { useState } from "react";
 import { ModalContainer, ModalBackdrop, ModalBtn, ModalView } from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export const Modal = ({ inActive, active, type, inputText }) => {
+export const Modal = ({ type, inputText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
-
-  // const text = useMemo(() => searchText, [searchText])
 
   const handleChange = (e) => setSearchText(e.target.value);
   const onSubmit = () => {
@@ -23,7 +19,7 @@ export const Modal = ({ inActive, active, type, inputText }) => {
     <>
       <ModalContainer>
         <ModalBtn onClick={openModalHandler}>
-          {isOpen === false ? inActive : active}
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </ModalBtn>
         {isOpen === true ? (
           <ModalBackdrop onClick={openModalHandler}>
@@ -38,7 +34,9 @@ export const Modal = ({ inActive, active, type, inputText }) => {
                     value={searchText}
                     onChange={handleChange}
                   />
-                  <button>검색 아이콘</button>
+                  <button>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </button>
                 </form>
               ) : (
                 <div className="desc">{inputText}</div>

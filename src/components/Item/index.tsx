@@ -1,7 +1,9 @@
 import React from "react";
 
-import { Wapper, Header, Main, Bottom } from "../Item/styles";
+import { Wapper, Header, Main, Bottom, Comment } from "../Item/styles";
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 export interface Post {
   id: number;
@@ -14,7 +16,6 @@ export interface Post {
 }
 
 const Item = ({ data }: { data: Post }) => {
-  console.log('data.slug',data.slug)
   return (
     <Wapper>
       <Link to={`/post${data.slug}`}>
@@ -31,7 +32,10 @@ const Item = ({ data }: { data: Post }) => {
       <Bottom>
         <span>{data.category}</span>
         <span>{data.date}</span>
-        <button>하트</button>
+        <Comment>
+          <FontAwesomeIcon icon={faCommentDots} />
+          <span className='count'>3</span>
+        </Comment>
       </Bottom>
       </Link>
     </Wapper>

@@ -8,14 +8,22 @@ import { Modal } from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMoon,
-  faMagnifyingGlass,
   faSun,
+  faUser,
+  faLockOpen,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Container, Buttons, Icons, Button, Logo, Dark, Icon } from "./styles";
+// import { changeTheme } from "../../pages/app";
+
+export const changeTheme = () => {
+  return {
+    type: "CHANGETHEME",
+  };
+};
 
 const Header = ({ siteTitle }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const state = useSelector((state) => state);
 
   const content = { message: "", login: true };
@@ -45,22 +53,32 @@ const Header = ({ siteTitle }) => {
 
         <Icons>
           <Icon>
-            <Modal
-              inActive={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-              active={"입력 중"}
-              type={"form"}
-            >
-              {/* <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon> */}
-            </Modal>
+            <Modal active={"검색"} type={"form"}></Modal>
           </Icon>
-          {/* <Button>
-          <Link to="/app/profile">Profile</Link>
-        </Button> */}
+          <Icon>
+            <Link to="/app/profile">
+              {" "}
+              {isLoggedIn() ? (
+                <a
+                  href="/"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    logout(() => navigate(`/app/login`));
+                  }}
+                >
+                  <FontAwesomeIcon icon={faLockOpen} />
+                </a>
+              ) : (
+                <FontAwesomeIcon icon={faUser} />
+              )}
+            </Link>
+          </Icon>
           <ThemeToggler>
             {({ theme, toggleTheme }) => (
               <Icon>
                 <Dark
                   onClick={() => {
+                    dispatch(changeTheme(theme));
                     toggleTheme(theme === "dark" ? "light" : "dark");
                   }}
                 >
@@ -70,29 +88,9 @@ const Header = ({ siteTitle }) => {
                     <FontAwesomeIcon icon={faMoon} />
                   )}
                 </Dark>
-                {/* <input
-                type="checkbox"
-                onChange={(e) => {
-                  return toggleTheme(e.target.checked ? "dark" : "light");
-                }}
-                checked={theme === "dark"}
-              /> */}
               </Icon>
             )}
           </ThemeToggler>
-          <Button>
-            {isLoggedIn() ? (
-              <a
-                href="/"
-                onClick={(event) => {
-                  event.preventDefault();
-                  logout(() => navigate(`/app/login`));
-                }}
-              >
-                Logout
-              </a>
-            ) : null}
-          </Button>
         </Icons>
       </Buttons>
     </Container>

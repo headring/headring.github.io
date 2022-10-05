@@ -9,7 +9,7 @@ export const Nav = styled.nav`
 `;
 
 export const Button = styled.button`
-  border: 1px solid #000;
+  border: 1px solid var(--textNormal);
   width: 30px;
   height: 30px;
   margin: 0;

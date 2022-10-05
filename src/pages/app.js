@@ -12,8 +12,19 @@ import Write from "./write";
 import MainPage from "./MainPage";
 import PostListPage from "./post-list";
 
-const themeReducer = (state = localStorage.getItem("theme")) => {
-  return state;
+export const changeTheme = () => {
+  return {
+    type: "CHANGETHEME",
+  };
+};
+
+const themeReducer = (state = localStorage.getItem("theme"), action) => {
+  switch (action.type) {
+    case "CHANGETHEME":
+      return state === "dark" ? "light" : "dark";
+    default:
+      return state;
+  }
 };
 
 const store = createStore(themeReducer);
