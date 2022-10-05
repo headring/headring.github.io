@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
-import ContentsPage from "../pages/ContentsPage";
+import ContentsPage from "../pages/contents";
 // import { PostPageItemType } from '../types/PostItem.types'
 import { PostFrontmatterType } from "../types/PostItem.types";
 import Layout from "../components/Layout";
