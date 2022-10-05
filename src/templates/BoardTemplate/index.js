@@ -9,8 +9,13 @@ import Pagination from "../../components/Pagination";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
+const isBrowser = typeof window !== "undefined";
+
 /////
-const themeReducer = (state = localStorage.getItem("theme"), action) => {
+const themeReducer = (
+  state = isBrowser ? localStorage.getItem("theme") : "light",
+  action
+) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";
