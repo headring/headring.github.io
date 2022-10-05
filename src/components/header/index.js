@@ -62,22 +62,15 @@ const Header = ({ siteTitle }) => {
             <Modal active={"검색"} type={"form"}></Modal>
           </Icon>
           <Icon>
-            <Link to="/app/profile">
-              {" "}
-              {isLoggedIn() ? (
-                <a
-                  href="/"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    logout(() => navigate(`/app/login`));
-                  }}
-                >
-                  <FontAwesomeIcon icon={faLockOpen} />
-                </a>
-              ) : (
+            {isLoggedIn() ? (
+              <Link to="/app/login">
+                <FontAwesomeIcon icon={faLockOpen} />
+              </Link>
+            ) : (
+              <Link to="/app/profile">
                 <FontAwesomeIcon icon={faUser} />
-              )}
-            </Link>
+              </Link>
+            )}
           </Icon>
           <ThemeToggler>
             {({ theme, toggleTheme }) => (

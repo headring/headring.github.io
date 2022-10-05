@@ -7,8 +7,9 @@ import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
+const isBrowser = typeof window !== "undefined";
 /////
-const themeReducer = (state = localStorage.getItem("theme"), action: any) => {
+const themeReducer = (state = isBrowser ? localStorage.getItem("theme") : "light", action: any) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";
