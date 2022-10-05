@@ -18,16 +18,21 @@ imgPath: "../images/gatsby-icon.png"
 
 const Post = () => {
   const [value, setValue] = useState(mkdStr);
+  const [local, setLocal] = useState();
 
   useEffect(() => {
-    let localLoader = window.localStorage.getItem("tempMkd");
+    const isBrowser = typeof window !== "undefined";
+    let localLoader = isBrowser && localStorage.getItem("tempMkd");
     if (localLoader) return setValue(localLoader);
+    if (isBrowser) {
+      return setLocal(localStorage.getItem("theme"));
+    }
   }, []);
 
   return (
     <>
       <PageWrapper>
-        <div data-color-mode={window.localStorage.getItem("theme")}>
+        <div data-color-mode={local}>
           <MDEditor
             className="md-editor"
             height={972}

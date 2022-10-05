@@ -47,26 +47,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 **Note: this is a one-way operation. Once you \`eject\`, you can't go back!**`;
 
 const Contents = ({ globalTheme, title, date, categories, html }) => {
-  const [theme, setTheme] = useState(window.localStorage.getItem("theme"));
-  // useEffect(() => {
-  //   setTheme(window.localStorage.getItem("theme"));
-  // }, []);
   return (
     <Article>
       <Title>{title}</Title>
       <span>{categories}</span>
       <Date>{date}</Date>
-      {/* <StyledContent id="Markdown">
-        <ReactMarkdown>{markdown}</ReactMarkdown>
-      </StyledContent> */}
-      {/* <Box data-color-mode={theme}>
-        <MDEditor
-          preview="preview"
-          height={972}
-          value={html}
-          hideToolbar={true}
-        />
-      </Box> */}
       <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
     </Article>
   );

@@ -16,10 +16,7 @@ class Utterances extends React.Component {
     scriptEl.src = "https://utteranc.es/client.js";
     scriptEl.setAttribute("repo", "callmejeje/oreum-comments");
     scriptEl.setAttribute("issue-term", "pathname");
-    scriptEl.setAttribute(
-      "theme",
-      `github-${window.localStorage.getItem("theme")}`
-    );
+    scriptEl.setAttribute("theme", `github-light`);
     scriptEl.setAttribute("crossorigin", "anonymous");
     this.commentsEl.current.appendChild(scriptEl);
   }
