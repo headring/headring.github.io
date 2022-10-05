@@ -23,7 +23,7 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
         date: data.node.frontmatter.date,
         imgPath: data.node.frontmatter.imgPath,
         contents: data.node.excerpt,
-        slug: data.node.fields.slug,
+        slug: data.node?.fields?.slug,
       };
       return newPost;
     });

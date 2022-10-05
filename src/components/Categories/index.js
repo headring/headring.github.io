@@ -7,18 +7,24 @@ const Categories = ({ data }) => {
   const totalCount = data.totalCount;
 
   return (
-    <Container>
+    <Container className="category">
       <h1>Category</h1>
       <ul>
         <li>
-          <Link to="/post-list">전체보기 ({totalCount})</Link>
+          <Link to="/post-list" activeClassName="active">
+            전체보기 <span className="count">({totalCount})</span>
+          </Link>
         </li>
         {postList.map((post) => {
           const { id } = post.edges[0].node;
           return (
             <li key={id}>
-              <Link to={"/post-list/" + post.fieldValue.replace(/\s/g, "-")}>
-                {post.fieldValue} ({post.totalCount})
+              <Link
+                to={"/post-list/" + post.fieldValue.replace(/\s/g, "-")}
+                activeClassName="active"
+              >
+                {post.fieldValue}
+                <span className="count">({post.totalCount})</span>
               </Link>
             </li>
           );
