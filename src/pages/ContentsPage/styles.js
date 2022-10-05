@@ -12,3 +12,10 @@ export const ModalBackdrop = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0);
 `;
+
+export const CommentContainer = styled.div`
+  .utterances {
+    width: 1180px;
+    max-width: 90%;
+  }
+`;

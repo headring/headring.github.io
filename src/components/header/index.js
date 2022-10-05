@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, navigate } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { isLoggedIn, logout } from "../../services/auth";
 import { Modal } from "../Modal";
 
-import { Container } from "./styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMoon,
+  faMagnifyingGlass,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { Container, Buttons, Icons, Button, Logo, Dark, Icon } from "./styles";
 
 const Header = ({ siteTitle }) => {
+  // const dispatch = useDispatch();
+  // const state = useSelector((state) => state);
+
   const content = { message: "", login: true };
   if (isLoggedIn()) {
     // content.message = `Hello, ${getUser().name}`;
@@ -17,48 +28,73 @@ const Header = ({ siteTitle }) => {
 
   return (
     <Container>
-      <Link
-        className="logo"
-        to="/"
-        style={{
-          textDecoration: "none",
-          fontSize: "28px",
-        }}
-      >
-        {siteTitle}
-      </Link>
+      <Logo>
+        <Link className="logo" to="/">
+          {siteTitle}
+        </Link>
+      </Logo>
 
       <span>{content.message}</span>
-      <Link to="/post-list">모든 글 보기</Link>
-      {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
+      <Buttons>
+        <Button>
+          <Link to="/post-list">모든 글 보기</Link>
+        </Button>
+        <Button>
+          {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
+        </Button>
 
-      <Modal inActive={"검색"} active={"입력 중"} type={"form"}></Modal>
-      <Link to="/app/profile">Profile</Link>
-      <ThemeToggler>
-        {({ theme, toggleTheme }) => (
-          <label>
-            <input
-              type="checkbox"
-              onChange={(e) => {
-                return toggleTheme(e.target.checked ? "dark" : "light");
-              }}
-              checked={theme === "dark"}
-            />
-            Dark mode
-          </label>
-        )}
-      </ThemeToggler>
-      {isLoggedIn() ? (
-        <a
-          href="/"
-          onClick={(event) => {
-            event.preventDefault();
-            logout(() => navigate(`/app/login`));
-          }}
-        >
-          Logout
-        </a>
-      ) : null}
+        <Icons>
+          <Icon>
+            <Modal
+              inActive={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+              active={"입력 중"}
+              type={"form"}
+            >
+              {/* <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon> */}
+            </Modal>
+          </Icon>
+          {/* <Button>
+          <Link to="/app/profile">Profile</Link>
+        </Button> */}
+          <ThemeToggler>
+            {({ theme, toggleTheme }) => (
+              <Icon>
+                <Dark
+                  onClick={() => {
+                    toggleTheme(theme === "dark" ? "light" : "dark");
+                  }}
+                >
+                  {theme === "dark" ? (
+                    <FontAwesomeIcon icon={faSun} />
+                  ) : (
+                    <FontAwesomeIcon icon={faMoon} />
+                  )}
+                </Dark>
+                {/* <input
+                type="checkbox"
+                onChange={(e) => {
+                  return toggleTheme(e.target.checked ? "dark" : "light");
+                }}
+                checked={theme === "dark"}
+              /> */}
+              </Icon>
+            )}
+          </ThemeToggler>
+          <Button>
+            {isLoggedIn() ? (
+              <a
+                href="/"
+                onClick={(event) => {
+                  event.preventDefault();
+                  logout(() => navigate(`/app/login`));
+                }}
+              >
+                Logout
+              </a>
+            ) : null}
+          </Button>
+        </Icons>
+      </Buttons>
     </Container>
   );
 };
