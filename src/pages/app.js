@@ -18,7 +18,12 @@ export const changeTheme = () => {
   };
 };
 
-const themeReducer = (state = localStorage.getItem("theme"), action) => {
+const isBrowser = typeof window !== "undefined";
+
+const themeReducer = (
+  state = isBrowser ? localStorage.getItem("theme") : "light",
+  action
+) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";

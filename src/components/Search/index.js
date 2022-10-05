@@ -6,9 +6,14 @@ import GlobalStyle from "../../styles/GlobalStyle";
 
 // el.content.match(regex)
 const Search = () => {
-  let searchText = localStorage.getItem('searchText').toLowerCase();
-  let datas = useSitePostdata().filter(el => {
-    return el.contents.toLowerCase().includes(searchText) || el.title.toLowerCase().includes(searchText);
+  const isBrowser = typeof window !== "undefined";
+  let searchText =
+    isBrowser && window.localStorage.getItem("searchText").toLowerCase();
+  let datas = useSitePostdata().filter((el) => {
+    return (
+      el.contents.toLowerCase().includes(searchText) ||
+      el.title.toLowerCase().includes(searchText)
+    );
   });
 
   return (

@@ -27,14 +27,14 @@ const Post = () => {
   const [value, setValue] = useState(mkdStr);
 
   useEffect(() => {
-    let localLoader = localStorage.getItem("tempMkd");
+    let localLoader = window.localStorage.getItem("tempMkd");
     if (localLoader) return setValue(localLoader);
   }, []);
 
   return (
     <>
       <PageWrapper>
-        <div data-color-mode={localStorage.getItem("theme")}>
+        <div data-color-mode={window.localStorage.getItem("theme")}>
           <MDEditor
             className="md-editor"
             height={972}

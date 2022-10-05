@@ -6,7 +6,11 @@ import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
 /////
-const themeReducer = (state = localStorage.getItem("theme"), action) => {
+const isBrowser = typeof window !== "undefined";
+const themeReducer = (
+  state = isBrowser ? localStorage.getItem("theme") : "light",
+  action
+) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";
@@ -23,7 +27,7 @@ export const Modal = ({ type, inputText }) => {
 
   const handleChange = (e) => setSearchText(e.target.value);
   const onSubmit = () => {
-    localStorage.setItem("searchText", searchText);
+    window.localStorage.setItem("searchText", searchText);
   };
 
   const openModalHandler = () => {
@@ -36,21 +40,24 @@ export const Modal = ({ type, inputText }) => {
           <ModalBtn onClick={openModalHandler}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </ModalBtn>
-          {isOpen === true ? <ModalBackdrop onClick={openModalHandler}>
-            <ModalView onClick={(e) => e.stopPropagation()}>
-              {type === 'form' ? 
-              <form onSubmit={onSubmit} action='/searchresult'>
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                <input
-                  placeholder="검색어를 입력하세요"
-                  value={searchText}
-                  onChange={handleChange}
-                  />
-              </form> 
-              : 
-              <div className="desc">{inputText}</div>}
-            </ModalView>
-          </ModalBackdrop> : null}
+          {isOpen === true ? (
+            <ModalBackdrop onClick={openModalHandler}>
+              <ModalView onClick={(e) => e.stopPropagation()}>
+                {type === "form" ? (
+                  <form onSubmit={onSubmit} action="/searchresult">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <input
+                      placeholder="검색어를 입력하세요"
+                      value={searchText}
+                      onChange={handleChange}
+                    />
+                  </form>
+                ) : (
+                  <div className="desc">{inputText}</div>
+                )}
+              </ModalView>
+            </ModalBackdrop>
+          ) : null}
         </ModalContainer>
       </Provider>
     </>
