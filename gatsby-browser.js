@@ -4,7 +4,12 @@ import theme from "./src/styles/theme";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 
-const themeReducer = (state = window.localStorage.getItem("theme"), action) => {
+const isBrowser = typeof window !== "undefined";
+
+const themeReducer = (
+  state = isBrowser ? localStorage.getItem("theme") : "light",
+  action
+) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";
