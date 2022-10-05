@@ -1,8 +1,8 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import theme from "./src/styles/theme";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
-// const React = require("react")
-// const { Provider } = require("react-redux")
 
 const themeReducer = (state = localStorage.getItem("theme"), action) => {
   switch (action.type) {
@@ -17,5 +17,9 @@ const themeReducer = (state = localStorage.getItem("theme"), action) => {
 const store = createStore(themeReducer);
 
 export const wrapRootElement = ({ element }) => {
-  return <Provider store={store}>{element}</Provider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>{element}</Provider>
+    </ThemeProvider>
+  );
 };

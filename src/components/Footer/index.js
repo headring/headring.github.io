@@ -2,17 +2,34 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faYoutube,
-  faFacebook,
-  faInstagram,
-  faTwitter,
+  faGithub,
+  faReadme,
+  faFigma,
 } from "@fortawesome/free-brands-svg-icons";
 import { Container, Copyright, Sns } from "./styles";
 
+const { GATSBY_GIT_HUB, GATSBY_NOTION, GATSBY_FIGMA } = process.env;
+
 const SNS_LIST = [
-  { id: 1, name: "페이스북", href: "", icon: faFacebook },
+  {
+    id: 1,
+    name: "깃허브",
+    href: `${GATSBY_GIT_HUB}`,
+    icon: faGithub,
+  },
+  {
+    id: 3,
+    name: "노션",
+    href: `${GATSBY_NOTION}`,
+    icon: faReadme,
+  },
+  {
+    id: 4,
+    name: "피그마",
+    href: `${GATSBY_FIGMA}`,
+    icon: faFigma,
+  },
   { id: 2, name: "유튜브", href: "", icon: faYoutube },
-  { id: 3, name: "인스타그램", href: "", icon: faInstagram },
-  { id: 4, name: "트위터", href: "", icon: faTwitter },
 ];
 
 const Footer = () => {

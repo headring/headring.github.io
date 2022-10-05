@@ -118,6 +118,9 @@ export const PostListQuery = graphql`
       totalCount
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             date
             title

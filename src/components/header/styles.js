@@ -31,8 +31,10 @@ export const Container = styled.div`
     animation: ${hue} 10s infinite linear;
   }
 
-  a {
+  a.under {
     position: relative;
+    display: block;
+    height: 30px;
     &::after {
       content: "";
       position: absolute;
