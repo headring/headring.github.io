@@ -43,8 +43,8 @@ const Post = () => {
           />
           <div className="button__rows">
             <Button onClick={(e) => window.location.replace("/")}>
-              {" "}
-              <FontAwesomeIcon icon={faArrowLeft} fontSize={"27px"} /> 나가기
+              <FontAwesomeIcon icon={faArrowLeft} fontSize={"27px"} />
+              나가기
             </Button>
             <Button className="purple" float="right" onClick={downloadTxtFile}>
               출간하기
