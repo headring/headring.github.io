@@ -5,9 +5,6 @@ import { downloadTxtFile, tempStorage } from "./postOnClickers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import { useDispatch, useSelector } from "react-redux";
-import { changeTheme } from "../../pages/app";
-
 const mkdStr = `
 ---
 title: "title for your post"
@@ -20,10 +17,6 @@ imgPath: "../images/gatsby-icon.png"
 `;
 
 const Post = () => {
-  // const dispatch = useDispatch();
-  // dispatch(changeTheme(state));
-  const state = useSelector((state) => state);
-
   const [value, setValue] = useState(mkdStr);
 
   useEffect(() => {
