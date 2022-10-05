@@ -45,7 +45,7 @@ const App = () => (
         <PrivateRoute path="/app/profile" component={Profile} />
         <PrivateRoute path="/app/write" component={Write} />
         <Login path="/app/login" />
-        <NotFoundPage path="/404" />
+        <NotFoundPage path="/404.html" />
         <ContentsPage path="contents" />
         <SearchResult path="/searchresult" />
         <PostListPage path="/post-list" />

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import ContentsPage from "../pages/contents";
 import { PostFrontmatterType } from "../types/PostItem.types";
@@ -7,7 +7,10 @@ import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
 const isBrowser = typeof window !== "undefined";
-const themeReducer = (state = isBrowser ? localStorage.getItem("theme") : "light", action: any) => {
+const themeReducer = (
+  state = isBrowser ? localStorage.getItem("theme") : "light",
+  action
+) => {
   switch (action.type) {
     case "CHANGETHEME":
       return state === "dark" ? "light" : "dark";
@@ -17,15 +20,7 @@ const themeReducer = (state = isBrowser ? localStorage.getItem("theme") : "light
 };
 const store = createStore(themeReducer);
 
-type PostTemplateProps = {
-  data: {
-    allMarkdownRemark: {
-      edges: PostPageItemType[];
-    };
-  };
-};
-
-const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
+const PostTemplate = function ({
   data: {
     allMarkdownRemark: { edges },
   },
@@ -36,7 +31,6 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
       frontmatter: { title, summary, date, categories },
     },
   } = edges[0];
-  console.log("data:", title);
 
   return (
     <Provider store={store}>
@@ -70,10 +64,3 @@ export const queryMarkdownDataBySlug = graphql`
     }
   }
 `;
-
-export type PostPageItemType = {
-  node: {
-    html: string;
-    frontmatter: PostFrontmatterType;
-  };
-};
