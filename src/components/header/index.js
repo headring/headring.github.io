@@ -14,7 +14,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Container, Buttons, Icons, Button, Logo, Dark, Icon } from "./styles";
-// import { changeTheme } from "../../pages/app";
 
 export const changeTheme = () => {
   return {
@@ -24,16 +23,7 @@ export const changeTheme = () => {
 
 const Header = ({ siteTitle }) => {
   const dispatch = useDispatch();
-  // const state = useSelector((state) => state);
-
   const content = { message: "", login: true };
-  if (isLoggedIn()) {
-    // content.message = `Hello, ${getUser().name}`;
-    content.login = false;
-  } else {
-    // content.message = "You are not logged in";
-  }
-
   return (
     <Container>
       <Logo>

@@ -11,7 +11,6 @@ import { legacy_createStore as createStore } from "redux";
 
 const isBrowser = typeof window !== "undefined";
 
-/////
 const themeReducer = (
   state = isBrowser ? localStorage.getItem("theme") : "light",
   action
@@ -24,7 +23,6 @@ const themeReducer = (
   }
 };
 const store = createStore(themeReducer);
-/////
 
 const BoardPage = ({ data, location, pageContext, allData }) => {
   const [limit, setLimit] = useState(10);

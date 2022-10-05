@@ -20,6 +20,7 @@ const Search = () => {
       </Layout>
     );
   }
+  return <span>test</span>;
 };
 
 export default Search;

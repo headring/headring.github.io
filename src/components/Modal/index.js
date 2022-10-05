@@ -5,7 +5,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
-/////
 const isBrowser = typeof window !== "undefined";
 const themeReducer = (
   state = isBrowser ? localStorage.getItem("theme") : "light",
@@ -19,7 +18,6 @@ const themeReducer = (
   }
 };
 const store = createStore(themeReducer);
-/////
 
 export const Modal = ({ type, inputText }) => {
   const [isOpen, setIsOpen] = useState(false);

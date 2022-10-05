@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
 import ContentsPage from "../pages/contents";
-// import { PostPageItemType } from '../types/PostItem.types'
 import { PostFrontmatterType } from "../types/PostItem.types";
 import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
 const isBrowser = typeof window !== "undefined";
-/////
 const themeReducer = (state = isBrowser ? localStorage.getItem("theme") : "light", action: any) => {
   switch (action.type) {
     case "CHANGETHEME":
@@ -18,12 +16,11 @@ const themeReducer = (state = isBrowser ? localStorage.getItem("theme") : "light
   }
 };
 const store = createStore(themeReducer);
-/////
 
 type PostTemplateProps = {
   data: {
     allMarkdownRemark: {
-      edges: PostPageItemType[]; // 존재하지 않는 타입이므로 에러가 발생하지만 일단 작성해주세요
+      edges: PostPageItemType[];
     };
   };
 };

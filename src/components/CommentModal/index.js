@@ -7,7 +7,6 @@ function CommentModal() {
   return (
     <Container onClick={(e) => e.stopPropagation()}>
       <Utterances />
-      {/* <CommentInput /> */}
     </Container>
   );
 }
