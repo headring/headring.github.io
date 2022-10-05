@@ -46,6 +46,7 @@ const BoardPage = ({ data, location, pageContext, allData }) => {
             </li>
             {edges.slice(offset, offset + limit).map((edge, idx) => {
               const { id, imgPath, title, category, date, slug } = edge;
+
               return (
                 <li key={id}>
                   <Link to={`/post${slug}`}>
@@ -101,6 +102,9 @@ export const PostListQuery = graphql`
       totalCount
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             date
             title
