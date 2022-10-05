@@ -59,7 +59,7 @@ const Header = ({ siteTitle }) => {
 
         <Icons>
           <Icon>
-            <Modal active={"검색"} type={"form"}></Modal>
+            <Modal active={"검색"} type={"form"} />
           </Icon>
           <Icon>
             {isLoggedIn() ? (
