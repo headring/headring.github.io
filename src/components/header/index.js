@@ -45,10 +45,16 @@ const Header = ({ siteTitle }) => {
       <span>{content.message}</span>
       <Buttons>
         <Button>
-          <Link to="/post-list">모든 글 보기</Link>
+          <Link className="under" to="/post-list">
+            모든 글 보기
+          </Link>
         </Button>
         <Button>
-          {isLoggedIn() ? <Link to="/app/write">글 작성</Link> : null}
+          {isLoggedIn() ? (
+            <Link className="under" to="/app/write">
+              글 작성
+            </Link>
+          ) : null}
         </Button>
 
         <Icons>
