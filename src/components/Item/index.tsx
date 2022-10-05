@@ -34,7 +34,7 @@ const Item = ({ data }: { data: Post }) => {
         <span>{data.date}</span>
         <Comment>
           <FontAwesomeIcon icon={faCommentDots} />
-          <span className='count'>3</span>
+          <span className='count'></span>
         </Comment>
       </Bottom>
       </Link>
