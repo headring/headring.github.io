@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b main"
+    "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
