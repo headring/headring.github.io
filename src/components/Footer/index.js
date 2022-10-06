@@ -8,7 +8,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Container, Copyright, Sns } from "./styles";
 
-const { GATSBY_GIT_HUB, GATSBY_NOTION, GATSBY_FIGMA } = process.env;
+const { GATSBY_GIT_HUB, GATSBY_NOTION, GATSBY_FIGMA } = {
+  GATSBY_GIT_HUB: "https://github.com/headring/oreum-blog-gatsby",
+  GATSBY_NOTION:
+    "https://pebble-thrush-93f.notion.site/160a803753ae4e41865b195bec8af3ad",
+  GATSBY_FIGMA:
+    "https://www.figma.com/file/h9cANtcy71kGmCGPt4YWc1/TS-blog-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=1%3A4",
+};
 
 const SNS_LIST = [
   {
