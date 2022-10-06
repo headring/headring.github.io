@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => {
       <Buttons>
         <Button>
           <Link className="under" to="/post-list">
-            모든 글 보기.
+            모든 글 보기
           </Link>
         </Button>
         <Button>
