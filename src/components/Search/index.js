@@ -8,7 +8,7 @@ const isBrowser = typeof window !== "undefined";
   // if(isBrowser){}
 
 const Search = () => {
-    let searchText = localStorage.getItem("searchText").toLowerCase();
+    let searchText = window.localStorage.getItem("searchText").toLowerCase();
     let datas = useSitePostdata().filter((el) => {
       return (
         el.contents.toLowerCase().includes(searchText) ||
