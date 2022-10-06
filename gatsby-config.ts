@@ -47,7 +47,7 @@ const config: GatsbyConfig = {
       options: {
         name: "gatsby-auth-tutorial",
         short_name: "auth",
-        start_url: "/",
+        start_url: "/oreum-blog-gatsby/",
         background_color: "#663399",
         theme_color: "#663399",
         display: "minimal-ui",
