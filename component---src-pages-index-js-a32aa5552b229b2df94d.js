@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkoreum_blog_gatsby=self.webpackChunkoreum_blog_gatsby||[]).push([[678],{6558:function(e,l,t){t.r(l);var n=t(7294),r=t(1597),u=t(7123),a=t(3494),o=t(3803),c=t(9153),m=t(168);l.default=function(){return n.createElement(a.ThemeProvider,{theme:o.Z},n.createElement(c.Z,null),n.createElement(m.default,null),n.createElement("p",null,(0,u.jl)()&&n.createElement(n.Fragment,null,"You are logged in, so check your",n.createElement(r.Link,{to:"/app/profile"},"profile"))))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-a32aa5552b229b2df94d.js.map

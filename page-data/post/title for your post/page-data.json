@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-post-template-js","path":"/post/title for your post/","result":{"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<p>**FROM HERE, WRITE CONTENTS USING MARKDOWN SYNTAX</p>","frontmatter":{"title":"title for your post","date":"2022.09.29."}}}]}},"pageContext":{"slug":"/title for your post/"}},"staticQueryHashes":["256249292"]}
