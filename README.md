@@ -1,3 +1,8 @@
+## 배포 시
+✤ Repository 생성
+Github Pages로 배포하기 위해서 ${my github id}.github.io 라는 레포지토리를 생성한다.
+
+
 # Commit Type
 - feat: 새로운 기능 추가
 - fix: 버그 수정
