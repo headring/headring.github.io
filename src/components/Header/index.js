@@ -52,19 +52,22 @@ const Header = ({ siteTitle }) => {
             <Modal active={"검색"} type={"form"} />
           </Icon>
           <Icon>
-            {isLoggedIn() ? (
-              <a
-                href="/"
-                onClick={(event) => {
-                  event.preventDefault();
-                  logout(() => navigate(`/app/login`));
-                }}
-              >
-                <FontAwesomeIcon icon={faLockOpen} />
-              </a>
-            ) : (
-              <FontAwesomeIcon icon={faUser} />
-            )}
+            <Link to="/app/profile">
+              {" "}
+              {isLoggedIn() ? (
+                <a
+                  href="/"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    logout(() => navigate(`/app/login`));
+                  }}
+                >
+                  <FontAwesomeIcon icon={faLockOpen} />
+                </a>
+              ) : (
+                <FontAwesomeIcon icon={faUser} />
+              )}
+            </Link>
           </Icon>
           <ThemeToggler>
             {({ theme, toggleTheme }) => (
