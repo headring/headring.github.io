@@ -4,6 +4,7 @@ import { PageWrapper, Button } from "./style";
 import { downloadTxtFile, tempStorage } from "./postOnClickers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const mkdStr = `
 ---
@@ -18,21 +19,18 @@ imgPath: "../images/gatsby-icon.png"
 
 const Post = () => {
   const [value, setValue] = useState(mkdStr);
-  const [local, setLocal] = useState();
+  const state = useSelector((state) => state);
 
   useEffect(() => {
     const isBrowser = typeof window !== "undefined";
     let localLoader = isBrowser && localStorage.getItem("tempMkd");
     if (localLoader) return setValue(localLoader);
-    if (isBrowser) {
-      return setLocal(localStorage.getItem("theme"));
-    }
   }, []);
 
   return (
     <>
       <PageWrapper>
-        <div data-color-mode={local}>
+        <div data-color-mode={state}>
           <MDEditor
             className="md-editor"
             height={972}

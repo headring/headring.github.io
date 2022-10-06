@@ -5,6 +5,7 @@ import Utterances from "../components/Utterances";
 import { useState } from "react";
 
 import styled from "styled-components";
+import QuickCommentButton from "../components/QuickButtons";
 export const ModalBackdrop = styled.div`
   display: flex;
   justify-content: center;
@@ -37,6 +38,7 @@ function ContentsPage({ globalTheme, title, date, categories, html }) {
         categories={categories}
         html={html}
       />
+      <QuickCommentButton />
       <CommentContainer>
         <Utterances />
       </CommentContainer>

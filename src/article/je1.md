@@ -2,7 +2,7 @@
 title: "jueun's test"
 date: "2022-09-29"
 category: "Learning TIL&Bootcamp"
-imgPath: "../images/gatsby-icon.png"
+imgPath: "../images/FW5CYW1akAAVvHO.jpeg"
 ---
 
 # 테스트 글
