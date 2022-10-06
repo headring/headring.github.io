@@ -2,6 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 require("dotenv").config();
 
 const config: GatsbyConfig = {
+  pathPrefix: '/oreum',
   siteMetadata: {
     title: `oreum`,
     siteUrl: "https://headring.github.io/oreum-blog-gatsby/",
