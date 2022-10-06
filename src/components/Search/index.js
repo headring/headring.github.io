@@ -5,8 +5,9 @@ import ItemList from "../ItemList";
 
 const isBrowser = typeof window !== "undefined";
 
+  // if(isBrowser){}
+
 const Search = () => {
-  if (isBrowser) {
     let searchText = localStorage.getItem("searchText").toLowerCase();
     let datas = useSitePostdata().filter((el) => {
       return (
@@ -19,8 +20,6 @@ const Search = () => {
         <ItemList datas={datas} />
       </Layout>
     );
-  }
-  return <span>test</span>;
 };
 
 export default Search;
