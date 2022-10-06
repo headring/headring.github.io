@@ -53,13 +53,17 @@ const Header = ({ siteTitle }) => {
           </Icon>
           <Icon>
             {isLoggedIn() ? (
-              <Link to="/app/login">
+              <a
+                href="/"
+                onClick={(event) => {
+                  event.preventDefault();
+                  logout(() => navigate(`/app/login`));
+                }}
+              >
                 <FontAwesomeIcon icon={faLockOpen} />
-              </Link>
+              </a>
             ) : (
-              <Link to="/app/profile">
-                <FontAwesomeIcon icon={faUser} />
-              </Link>
+              <FontAwesomeIcon icon={faUser} />
             )}
           </Icon>
           <ThemeToggler>
