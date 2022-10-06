@@ -1,16 +1,17 @@
 import type { GatsbyConfig } from "gatsby";
-require("dotenv").config()
+require("dotenv").config();
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `oreum`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: "https://headring.github.io/",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
+
   flags: {
-    DEV_SSR: false
+    DEV_SSR: false,
   },
   graphqlTypegen: true,
   plugins: [
@@ -20,6 +21,14 @@ const config: GatsbyConfig = {
     //     "url": ""
     //   }
     // },
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://headring.github.io/",
+        stripQueryString: true,
+      },
+    },
+
     `gatsby-transformer-remark`,
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
