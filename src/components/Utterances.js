@@ -14,7 +14,7 @@ class Utterances extends React.Component {
     scriptEl.onerror = () => this.setState({ status: "failed" });
     scriptEl.async = true;
     scriptEl.src = "https://utteranc.es/client.js";
-    scriptEl.setAttribute("repo", "callmejeje/oreum-comments");
+    scriptEl.setAttribute("repo", "jee-woo/oreum-comments");
     scriptEl.setAttribute("issue-term", "pathname");
     scriptEl.setAttribute("theme", `github-light`);
     scriptEl.setAttribute("crossorigin", "anonymous");
@@ -25,7 +25,7 @@ class Utterances extends React.Component {
     const { status } = this.state;
 
     return (
-      <div className="comments-wrapper">
+      <div className='comments-wrapper'>
         {status === "failed" && <div>Error. Please try again.</div>}
         {status === "pending" && <div>Loading script...</div>}
         <div ref={this.commentsEl} />
