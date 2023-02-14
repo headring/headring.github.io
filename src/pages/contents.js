@@ -5,8 +5,8 @@ import Utterances from "../components/Utterances";
 import { useState } from "react";
 
 import styled from "styled-components";
+import QuickCommentButton from "../components/QuickButtons";
 export const ModalBackdrop = styled.div`
-  // TODO : Modal이 떴을 때의 배경을 깔아주는 CSS를 구현합니다.
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,16 +38,10 @@ function ContentsPage({ globalTheme, title, date, categories, html }) {
         categories={categories}
         html={html}
       />
+      <QuickCommentButton />
       <CommentContainer>
         <Utterances />
       </CommentContainer>
-      {/* {modalOpen ? (
-        <ModalBackdrop style={{display: 'none'}} onClick={() => setModalOpen(!modalOpen)}>
-          <CommentModal />
-        </ModalBackdrop>
-      ) : (
-        <QuickCommentButton style={{display: 'none'}} modalOpen={modalOpen} setModalOpen={setModalOpen} />
-      )} */}
     </div>
   );
 }

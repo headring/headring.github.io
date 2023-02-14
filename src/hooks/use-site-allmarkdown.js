@@ -46,16 +46,3 @@ export const useSitePostdata = () => {
   });
   return datas;
 };
-
-// graphql`
-// query allMarkdownRemark {
-//   nodes {
-//     excerpt
-//     frontmatter {
-//       title
-//       date
-//     }
-//     html
-//   }
-// }
-// `

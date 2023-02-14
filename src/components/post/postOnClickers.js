@@ -19,6 +19,9 @@ export const downloadTxtFile = () => {
 };
 
 export const tempStorage = () => {
+  const isBrowser = typeof window !== "undefined";
   let tempMkd = document.querySelector(".w-md-editor-text-input").value;
-  window.localStorage.setItem("tempMkd", tempMkd);
+  if (isBrowser) {
+    return localStorage.setItem("tempMkd", tempMkd);
+  }
 };

@@ -5,7 +5,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Provider } from "react-redux";
 import { legacy_createStore as createStore } from "redux";
 
-/////
 const isBrowser = typeof window !== "undefined";
 const themeReducer = (
   state = isBrowser ? localStorage.getItem("theme") : "light",
@@ -19,7 +18,6 @@ const themeReducer = (
   }
 };
 const store = createStore(themeReducer);
-/////
 
 export const Modal = ({ type, inputText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +26,9 @@ export const Modal = ({ type, inputText }) => {
   const handleChange = (e) => setSearchText(e.target.value);
 
   const onSubmit = () => {
-    window.localStorage.setItem("searchText", searchText);
+    if (isBrowser) {
+      localStorage.setItem("searchText", searchText);
+    }
   };
 
   const openModalHandler = () => {
@@ -41,7 +41,7 @@ export const Modal = ({ type, inputText }) => {
           <ModalBtn onClick={openModalHandler}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </ModalBtn>
-          {isOpen === true ? (
+          {isOpen === true && isBrowser ? (
             <ModalBackdrop onClick={openModalHandler}>
               <ModalView onClick={(e) => e.stopPropagation()}>
                 {type === "form" ? (

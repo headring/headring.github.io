@@ -56,7 +56,6 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 
-  //style custom
   * {
     box-sizing: border-box;
   }

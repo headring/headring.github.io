@@ -21,23 +21,3 @@ export const useCategory = () => {
   );
   return data.allMarkdownRemark;
 };
-
-// query CategoryQuery {
-//   projects: allMarkdownRemark(
-//     sort: { fields: frontmatter___date, order: DESC }
-//   ) {
-//     totalCount
-//     nodes {
-//       frontmatter {
-//         category
-//         title
-//       }
-//       id
-//     }
-//   }
-//   contact: site {
-//     siteMetadata {
-//       title
-//     }
-//   }
-// }

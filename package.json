@@ -27,6 +27,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "fs": "^0.0.1-security",
     "gatsby": "^4.22.1",
+    "gatsby-plugin-canonical-urls": "^4.24.0",
     "gatsby-plugin-create-client-paths": "^4.9.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-google-analytics": "^4.22.0",

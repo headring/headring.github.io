@@ -7,9 +7,8 @@ export const Button = styled.button`
   align-items: center;
   position: fixed;
   right: 36px;
-  bottom: 36px;
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
   box-shadow: rgb(0 0 0 / 25%) 0px 2px 32px;
   background-color: #6300eb;
   border-radius: 70%;
@@ -24,4 +23,21 @@ export const Message = styled.div`
   align-items: center;
   width: 40px;
   height: 40px;
+`;
+
+export const Container = styled.div`
+  .topBtn {
+    opacity: 0;
+    z-index: -10;
+    /* bottom: 92px; */
+    bottom: 36px;
+  }
+  .topBtn.active {
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .cmtBtn {
+    bottom: 36px;
+  }
 `;
